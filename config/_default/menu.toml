@@ -14,10 +14,3 @@
     [social.params]
         icon = "brand-linkedin"
 
-[[social]]
-    identifier = "email"
-    name       = "Gmail"
-    url        = "mailto:krstball@gmail.com"
-
-    [social.params]
-        icon = "brand-gmail"

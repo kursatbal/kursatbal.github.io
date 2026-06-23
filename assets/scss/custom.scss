@@ -99,6 +99,29 @@ details {
     }
 }
 
+// ── Sidebar Email Row ─────────────────────────────────────────────────
+.sidebar-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+    margin-top: 2px;
+    padding: 0 4px;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--body-text-color);
+        stroke-width: 1.33;
+        flex-shrink: 0;
+    }
+
+    span {
+        line-height: 1;
+    }
+}
+
 // ── Tag Hover ─────────────────────────────────────────────────────────
 .article-tags a {
     transition: background-color 0.2s ease, color 0.2s ease;
