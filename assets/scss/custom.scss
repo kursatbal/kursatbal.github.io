@@ -1,8 +1,9 @@
-// ── Accent Color: Professional Blue ──────────────────────────────────
+// ── Accent Color ─────────────────────────────────────────────────────
 :root {
     --accent-color: #1a56db;
     --accent-color-darker: #1240a4;
     --accent-color-text: #fff;
+    --gradient-primary: linear-gradient(135deg, #1a56db 0%, #7c3aed 60%, #0ea5e9 100%);
 }
 
 :root[data-scheme="dark"] {
@@ -11,9 +12,57 @@
     --accent-color-text: #000;
 }
 
-// ── Card Hover Effect ─────────────────────────────────────────────────
+// ── Sidebar Avatar Ring ───────────────────────────────────────────────
+.site-avatar {
+    .site-logo {
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 0 0 3px var(--accent-color), 0 4px 16px rgba(26, 86, 219, 0.25);
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 0 0 3px #7c3aed, 0 6px 20px rgba(124, 58, 237, 0.35);
+        }
+    }
+}
+
+// ── Sidebar Email Row ─────────────────────────────────────────────────
+.sidebar-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+    margin-top: 2px;
+    padding: 0 4px;
+
+    svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--body-text-color);
+        stroke-width: 1.33;
+        flex-shrink: 0;
+    }
+
+    span { line-height: 1; }
+}
+
+// ── Post Card Gradient Top Bar ────────────────────────────────────────
 .article-list article {
+    position: relative;
+    overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        z-index: 1;
+    }
 
     &:hover {
         transform: translateY(-4px);
@@ -21,12 +70,31 @@
     }
 }
 
-// ── Accordion (details / summary) ─────────────────────────────────────
+// ── Tech Badge Grid (About page) ──────────────────────────────────────
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+
+    img {
+        height: 28px;
+        border-radius: 4px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            opacity: 0.85;
+        }
+    }
+}
+
+// ── Accordion ─────────────────────────────────────────────────────────
 details {
     background: var(--card-background);
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
-    margin: 12px 0;
+    margin: 10px 0;
     overflow: hidden;
     border-left: 4px solid var(--accent-color);
 
@@ -51,18 +119,12 @@ details {
             flex-shrink: 0;
         }
 
-        &::-webkit-details-marker {
-            display: none;
-        }
+        &::-webkit-details-marker { display: none; }
 
-        &:hover {
-            background: var(--card-background-selected);
-        }
+        &:hover { background: var(--card-background-selected); }
     }
 
-    &[open] > summary::before {
-        transform: rotate(90deg);
-    }
+    &[open] > summary::before { transform: rotate(90deg); }
 
     & > *:not(summary) {
         padding: 4px 20px 18px 20px;
@@ -75,7 +137,7 @@ details {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-// ── Table Improvements ────────────────────────────────────────────────
+// ── Table ─────────────────────────────────────────────────────────────
 .article-content table {
     width: 100%;
     border-collapse: collapse;
@@ -94,40 +156,8 @@ details {
         border-bottom: 1px solid var(--card-separator-color);
     }
 
-    tr:last-child td {
-        border-bottom: none;
-    }
+    tr:last-child td { border-bottom: none; }
 }
 
-// ── Sidebar Email Row ─────────────────────────────────────────────────
-.sidebar-email {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--body-text-color);
-    font-size: 1.4rem;
-    margin-top: 2px;
-    padding: 0 4px;
-
-    svg {
-        width: 22px;
-        height: 22px;
-        stroke: var(--body-text-color);
-        stroke-width: 1.33;
-        flex-shrink: 0;
-    }
-
-    span {
-        line-height: 1;
-    }
-}
-
-// ── Tag Hover ─────────────────────────────────────────────────────────
-.article-tags a {
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-// ── Sidebar Name Color ────────────────────────────────────────────────
-.sidebar .site-name {
-    color: var(--accent-color);
-}
+// ── Sidebar Name ──────────────────────────────────────────────────────
+.sidebar .site-name { color: var(--accent-color); }

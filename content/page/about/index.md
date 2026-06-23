@@ -12,10 +12,33 @@ menu:
 
 ## Harun Kürşat Bal
 
-**System Engineer** — Tuzla, İstanbul  
-Bilgisayar Mühendisliği mezunu · vMind Bilgi ve Teknolojileri A.Ş.
+**System Engineer** — Tuzla, İstanbul · vMind Bilgi ve Teknolojileri A.Ş.
 
 ---
+
+<details open>
+<summary>🛠️ Teknoloji Stack'i</summary>
+
+<div class="tech-badges">
+<img src="https://img.shields.io/badge/Active_Directory-0078D4?style=for-the-badge&logo=microsoft&logoColor=white" />
+<img src="https://img.shields.io/badge/Entra_ID-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/Microsoft_365-D83B01?style=for-the-badge&logo=microsoftoffice&logoColor=white" />
+<img src="https://img.shields.io/badge/Exchange-0078D4?style=for-the-badge&logo=microsoftexchange&logoColor=white" />
+<img src="https://img.shields.io/badge/VMware_vSphere-607078?style=for-the-badge&logo=vmware&logoColor=white" />
+<img src="https://img.shields.io/badge/Hyper--V-0078D4?style=for-the-badge&logo=microsoft&logoColor=white" />
+<img src="https://img.shields.io/badge/Sangfor-E4002B?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/Citrix-452170?style=for-the-badge&logo=citrix&logoColor=white" />
+<img src="https://img.shields.io/badge/Windows_Server-0078D4?style=for-the-badge&logo=windows&logoColor=white" />
+<img src="https://img.shields.io/badge/Veeam-00B336?style=for-the-badge&logo=veeam&logoColor=white" />
+<img src="https://img.shields.io/badge/Nutanix-024DA1?style=for-the-badge&logo=nutanix&logoColor=white" />
+<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+<img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" />
+<img src="https://img.shields.io/badge/Cisco_IronPort-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" />
+<img src="https://img.shields.io/badge/Dell-007DB8?style=for-the-badge&logo=dell&logoColor=white" />
+</div>
+
+</details>
 
 <details>
 <summary>💼 İş Deneyimi</summary>
@@ -25,14 +48,12 @@ Bilgisayar Mühendisliği mezunu · vMind Bilgi ve Teknolojileri A.Ş.
 - Dell, HP, IBM ve Nutanix sunucu/depolama sistemlerinin fiziksel kurulumu ve devreye alınması
 - SAN switch kurulumu ve konfigürasyonu
 - VMware, Hyper-V, Sangfor sanallaştırma altyapılarının kurulumu ve konfigürasyonu
-- Windows Server rollerinin (DNS, DHCP, WSUS, IIS, LAPS, Active Directory, RDS, GPO) kurulumu ve yönetimi
-- Active Directory ve Entra ID (Azure AD) hibrit kimlik yönetimi, AD Connect, GPO tasarımı ve sorun giderme
-- Exchange Server (on-prem & Office 365) kurulumu; Exchange–Exchange Online–POP3/IMAP geçiş yönetimi
-- Enterprise Vault arşivleme sistemleri kurulumu ve yönetimi
-- IronPort, SMG ve TrendMicro mail gateway yönetimi
-- Citrix VDI ortamı yönetimi ve konfigürasyonu
-- Veeam Backup & Replication; Networker ve PPDM; DR simülasyonları
-- Orta düzey Linux sistem yönetimi ve NAS kurulumu
+- Windows Server rollerinin (DNS, DHCP, WSUS, IIS, LAPS, Active Directory, RDS, GPO) yönetimi
+- Active Directory ve Entra ID hibrit kimlik yönetimi, AD Connect, GPO tasarımı
+- Exchange Server & Office 365 kurulumu; geçiş süreçleri yönetimi
+- Enterprise Vault arşivleme, IronPort/SMG/TrendMicro mail gateway yönetimi
+- Citrix VDI, Veeam B&R, Networker, PPDM; DR simülasyonları
+- Linux sistem yönetimi ve NAS kurulumu
 
 ---
 
@@ -43,31 +64,17 @@ Bilgisayar Mühendisliği mezunu · vMind Bilgi ve Teknolojileri A.Ş.
 </details>
 
 <details>
-<summary>🛠️ Teknik Yetkinlikler</summary>
-
-| Alan | Teknolojiler |
-|---|---|
-| Kimlik & Dizin | Active Directory, Entra ID, AD Connect, GPO, LAPS |
-| Sanallaştırma | VMware vSphere, Hyper-V, Sangfor, Citrix VDI, NVIDIA VDI |
-| Microsoft 365 | Exchange Online, SharePoint, Teams, Office 365 geçişleri |
-| Windows Server | DNS, DHCP, WSUS, IIS, RDS, DFS |
-| Yedekleme & DR | Veeam B&R, Networker, PPDM, DR simülasyonları |
-| Mail Security | IronPort, SMG, TrendMicro, Enterprise Vault |
-| Donanım | Dell, HP, IBM, Nutanix sunucu & SAN sistemleri |
-| Linux & NAS | Orta düzey Linux sistem yönetimi, NAS konfigürasyonu |
-
-</details>
-
-<details>
 <summary>🏆 Sertifikalar</summary>
 
-- **Microsoft Certified: Security, Compliance, and Identity Fundamentals** — Microsoft · Mayıs 2026
-- **Broadcom Certified Expert – VMware Cloud Foundation (Pre-Sales)** — Broadcom · Mart 2026
-- **Broadcom Proven Professional – VMware Cloud Foundation (Pre-Sales)** — Broadcom · Mart 2026
-- **NVIDIA Virtual Desktops Technical Curriculum** — NVIDIA · Mayıs 2025
-- **Microsoft Certified: Azure Administrator Associate** — Microsoft · Kasım 2022
-- **H3C Wi-Fi Product & Configuration Training** — H3C · Haziran 2022
-- **Bulut Bilişim Uzmanlığı** — İstanbul Topkapı Üniversitesi · Mart 2022
+| Sertifika | Kurum | Tarih |
+|---|---|---|
+| Security, Compliance & Identity Fundamentals | Microsoft | Mayıs 2026 |
+| Certified Expert – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
+| Proven Professional – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
+| Virtual Desktops Technical Curriculum | NVIDIA | Mayıs 2025 |
+| Azure Administrator Associate (AZ-104) | Microsoft | Kasım 2022 |
+| Wi-Fi Product & Configuration Training | H3C | Haziran 2022 |
+| Bulut Bilişim Uzmanlığı | İstanbul Topkapı Üniversitesi | Mart 2022 |
 
 </details>
 
