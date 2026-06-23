@@ -1,0 +1,7 @@
+[en]
+    label  = "English"
+    title  = "Kürşat Bal"
+    weight = 1
+
+    [en.params.sidebar]
+        subtitle = "System Engineer | AD · VMware · M365 · Security"

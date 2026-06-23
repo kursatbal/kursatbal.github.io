@@ -1,0 +1,39 @@
+[sidebar]
+    emoji    = "🖥️"
+    subtitle = "System Engineer | AD · VMware · M365 · Security"
+
+    [sidebar.avatar]
+        enabled = true
+        local   = true
+        src     = "img/avatar.png"
+
+[footer]
+    since       = 2025
+    customText  = ""
+
+[dateFormat]
+    published   = "02 Jan 2006"
+    lastUpdated = "02 Jan 2006 15:04 MST"
+
+[comments]
+    enabled = false
+
+[widgets]
+    homepage = [
+        {type = "search"},
+        {type = "archives", limit = 5},
+        {type = "tag-cloud", limit = 10}
+    ]
+    page = [
+        {type = "toc"}
+    ]
+
+[opengraph]
+    [opengraph.twitter]
+        site = ""
+        card = "summary_large_image"
+
+[defaultImage.opengraph]
+    enabled = false
+    local   = false
+    src     = ""
