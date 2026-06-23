@@ -17,23 +17,21 @@ Bu kılavuz, Microsoft Exchange Server ortamınızda Kerberos kimlik doğrulamas
 
 ---
 
-## Bölüm 1: Ön Şartlar ve Active Directory Yapılandırması
+## Ön Şartlar ve Active Directory Yapılandırması
 
-### 1.1. DNS Kayıtlarının Oluşturulması
+### DNS Kayıtlarının Oluşturulması
 
 DNS **Forward Lookup Zone** üzerinde ilgili Autodiscover ve mail adları için **A kaydı** oluşturulmalıdır.
 
-### 1.2. Alternatif Hizmet Hesabı (ASA) Computer Nesnesi Oluşturma
+### Alternatif Hizmet Hesabı (ASA) Computer Nesnesi Oluşturma
 
 Kerberos'un düzgün çalışabilmesi için bir **Alternatif Hizmet Hesabı (ASA)** bilgisayar nesnesi oluşturulmalıdır. Bu nesne **devre dışı bırakılmamalıdır**.
 
-**1. OU Path Tespiti:**
+**OU Path Tespiti:**
 
-Exchange Server sanal makinesinin bulunduğu OU üzerine gelin → Properties → Attribute Editor → `distinguishedName` değerini not alın.
+Exchange Server'ın bulunduğu OU üzerine gelin → Properties → Attribute Editor → `distinguishedName` değerini not alın.
 
-**2. ASA Computer Nesnesi Oluşturma:**
-
-Domain Controller üzerinden CMD ile çalıştırın:
+**ASA Computer Nesnesi Oluşturma:**
 
 ```powershell
 New-ADComputer -Name "EXCH2019ASA" `
@@ -46,19 +44,19 @@ New-ADComputer -Name "EXCH2019ASA" `
 
 > `-Path` parametresini kendi OU yapınıza göre güncelleyin.
 
-**3. AES 256 Şifrelemesini Etkinleştirme:**
+**AES 256 Şifrelemesini Etkinleştirme:**
 
 ```powershell
 Set-ADComputer "EXCH2019ASA" -add @{"msDS-SupportedEncryptionTypes"="28"}
 ```
 
-**4. Doğrulama:**
+**Doğrulama:**
 
 ```powershell
 Get-ADComputer "EXCH2019ASA" | Format-List msDS-SupportedEncryptionTypes
 ```
 
-**5. AD Senkronizasyonunu Tetikleme:**
+**AD Senkronizasyonunu Tetikleme:**
 
 ```
 Repadmin /syncall /ADPe
@@ -66,19 +64,19 @@ Repadmin /syncall /ADPe
 
 ---
 
-## Bölüm 2: Exchange Server Üzerinde ASA Dağıtımı
+## Exchange Server Üzerinde ASA Dağıtımı
 
-### 2.1. ASA Kimlik Bilgilerinin Dağıtılması
+### ASA Kimlik Bilgilerinin Dağıtılması
 
 Bu adımlar **Exchange Management Shell (EMS)** üzerinden gerçekleştirilir.
 
-**1. Scripts klasörüne geçin:**
+**Scripts klasörüne geçin:**
 
 ```powershell
 cd $exscripts
 ```
 
-**2. İlk Exchange Sunucusuna Dağıtma:**
+**İlk Exchange Sunucusuna Dağıtma:**
 
 ```powershell
 .\RollAlternateServiceAccountPassword.ps1 `
@@ -88,7 +86,7 @@ cd $exscripts
 
 > **Önemli:** `kuso\EXCH2019ASA$` kısmında netBIOS adını kullanın. İstendiğinde `Y` yazıp Enter'a basın. İşlem tamamlandığında **"Succeeded"** çıktısı görülmelidir.
 
-**3. Birden Fazla Exchange Sunucusuna Dağıtma:**
+**Birden Fazla Exchange Sunucusuna Dağıtma:**
 
 ```powershell
 .\RollAlternateServiceAccountPassword.ps1 `
@@ -96,7 +94,7 @@ cd $exscripts
     -CopyFrom "kbexchsrv.kuso.local"
 ```
 
-**4. ASA Kimlik Bilgisi Ayarlarını Kontrol Etme:**
+**ASA Kimlik Bilgisi Ayarlarını Kontrol Etme:**
 
 ```powershell
 Get-ClientAccessServer -IncludeAlternateServiceAccountCredentialStatus |
@@ -107,9 +105,9 @@ Get-ClientAccessServer -IncludeAlternateServiceAccountCredentialStatus |
 
 ---
 
-## Bölüm 3: Hizmet Asıl Adlarını (SPN) Ayarlama
+## Hizmet Asıl Adlarını (SPN) Ayarlama
 
-### 3.1. Mevcut SPN İlişkilerini Kontrol Etme
+### Mevcut SPN İlişkilerini Kontrol Etme
 
 CMD üzerinden çalıştırın. Çıktı **"No such SPN found"** olmalıdır:
 
@@ -118,7 +116,7 @@ setspn -F -Q http/mail.kuso.local
 setspn -F -Q http/autodiscover.kuso.local
 ```
 
-### 3.2. SPN'leri ASA Kimlik Bilgilerine Bağlama
+### SPN'leri ASA Kimlik Bilgilerine Bağlama
 
 **MAPI/HTTP ve Outlook Anywhere SPN'si:**
 
@@ -132,7 +130,7 @@ setspn -S http/mail.kuso.local kuso\EXCH2019ASA$
 setspn -S http/autodiscover.kuso.local kuso\EXCH2019ASA$
 ```
 
-### 3.3. SPN İlişkilerini Doğrulama
+### SPN İlişkilerini Doğrulama
 
 ```
 setspn -L kuso\EXCH2019ASA$
@@ -140,9 +138,9 @@ setspn -L kuso\EXCH2019ASA$
 
 ---
 
-## Bölüm 4: Exchange Sanal Dizinlerini Yapılandırma
+## Exchange Sanal Dizinlerini Yapılandırma
 
-### 4.1. Outlook Anywhere İçin Kerberos
+### Outlook Anywhere İçin Kerberos
 
 **Etkinleştirme:**
 
@@ -159,7 +157,7 @@ Get-OutlookAnywhere -Server "kbexchsrv" |
 # Beklenen: Negotiate
 ```
 
-### 4.2. MAPI over HTTP İçin Kerberos
+### MAPI over HTTP İçin Kerberos
 
 **Etkinleştirme (NTLM + Negotiate):**
 
@@ -186,32 +184,28 @@ $mapidir | Set-MapiVirtualDirectory `
 
 ---
 
-## Bölüm 5: Son İşlemler ve Test
+## Son İşlemler ve Test
 
-### 5.1. Grup İlkesi (GPO) Uygulama
+### Grup İlkesi (GPO) Uygulama
 
-Kerberos kullanacak tüm kullanıcılara bir GPO uygulanmalıdır. Bu GPO, NTLM isteklerini devre dışı bırakarak Kerberos kullanımını zorunlu kılar. **Authenticated Users** grubuna uygulanabilir.
-
-Uygulanması gereken GPO ayarları:
-
-| Policy | Setting |
-|---|---|
-| Network security: Restrict NTLM: Incoming NTLM traffic | Deny all accounts |
-| Network security: Restrict NTLM: NTLM authentication in this domain | Disable |
-| Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers | Deny all |
+Kerberos kullanacak tüm kullanıcılara bir GPO uygulanmalıdır. **Authenticated Users** grubuna uygulanabilir.
 
 Yol: `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → Security Options`
 
-### 5.2. Hizmetleri Yeniden Başlatma
+| Policy | Setting |
+|---|---|
+| Restrict NTLM: Incoming NTLM traffic | Deny all accounts |
+| Restrict NTLM: NTLM authentication in this domain | Disable |
+| Restrict NTLM: Outgoing NTLM traffic to remote servers | Deny all |
 
-Tüm Exchange sunucularında aşağıdaki hizmetleri yeniden başlatın:
+### Hizmetleri Yeniden Başlatma
 
 ```powershell
 Restart-Service MSExchangeServiceHost
 Restart-WebAppPool -Name MSExchangeAutodiscoverAppPool
 ```
 
-### 5.3. Test ve Doğrulama
+### Test ve Doğrulama
 
 1. İstemci makinesinde **Outlook'u** başlatın
 2. CMD'yi başlatın ve Kerberos biletlerini kontrol edin:

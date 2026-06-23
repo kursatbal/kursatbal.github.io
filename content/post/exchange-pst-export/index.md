@@ -16,7 +16,7 @@ Exchange On-Premises ortamında posta kutularını PST dosyalarına aktarmanın 
 
 ---
 
-## 1. Ön Koşullar ve Yetkilendirme
+## Ön Koşullar ve Yetkilendirme
 
 ### Kullanıcı Yetkilendirmesi
 
@@ -29,17 +29,15 @@ New-ManagementRoleAssignment -Role "Mailbox Import Export" -User kursat.test
 ### Dışa Aktarım Klasörünün Hazırlanması
 
 1. PST dosyalarının kaydedileceği bir klasör oluşturun (örn. `C:\pst_yedek`)
-2. Klasörün güvenlik izinlerinde (Security tab) **Exchange Trusted Subsystem** grubuna **Tam Denetim (Full Control)** yetkisi verin
+2. Klasörün **Security** sekmesinde **Exchange Trusted Subsystem** grubuna **Full Control** yetkisi verin
 
 > Bu izinler dışa aktarım işlemi sırasında kritik öneme sahiptir.
 
 ---
 
-## 2. PST Dışa Aktarım İşlemleri
+## PST Dışa Aktarım İşlemleri
 
-Exchange Management Shell'e bağlandıktan sonra aşağıdaki komutları doğrudan çalıştırabilir veya `.ps1` betiği olarak kaydedip çalıştırabilirsiniz.
-
-### 2.1. Tüm Posta Kutusunu Dışa Aktarma
+### Tüm Posta Kutusunu Dışa Aktarma
 
 ```powershell
 New-MailboxExportRequest -Mailbox kursat.test -FilePath \\ipadress\pst_yedek\kursattest.pst
@@ -47,10 +45,10 @@ New-MailboxExportRequest -Mailbox kursat.test -FilePath \\ipadress\pst_yedek\kur
 
 | Parametre | Açıklama |
 |---|---|
-| `-Mailbox kursat.test` | Dışa aktarılacak posta kutusunun adresi |
-| `-FilePath \\ip-adress\pst_yedek\kursattest.pst` | PST'nin kaydedileceği ağ yolu |
+| `-Mailbox` | Dışa aktarılacak posta kutusunun adresi |
+| `-FilePath` | PST'nin kaydedileceği ağ yolu |
 
-### 2.2. Belirli Bir Klasörü Dışa Aktarma
+### Belirli Bir Klasörü Dışa Aktarma
 
 Önce klasörün tam yolunu öğrenin:
 
@@ -74,9 +72,7 @@ New-MailboxExportRequest -Mailbox kursat.test `
     -IncludeFolders "#\Gelen Kutusu\2020#"
 ```
 
-### 2.3. Tarih Aralığına Göre Dışa Aktarma
-
-Belirli bir tarihten önceki e-postaları aktarmak için:
+### Tarih Aralığına Göre Dışa Aktarma
 
 ```powershell
 New-MailboxExportRequest -Mailbox kursat.test `
@@ -93,7 +89,7 @@ New-MailboxExportRequest -Mailbox kursat.test `
 
 ---
 
-## 3. Dışa Aktarım Durumunu Kontrol Etme
+## Dışa Aktarım Durumunu Kontrol Etme
 
 ```powershell
 Get-MailboxExportRequest -Mailbox kursat.test | Get-MailboxExportRequestStatistics
@@ -101,12 +97,12 @@ Get-MailboxExportRequest -Mailbox kursat.test | Get-MailboxExportRequestStatisti
 
 | Alan | Açıklama |
 |---|---|
-| `StatusDetail` | İşlemin durumu: Queued / InProgress / Completed |
+| `StatusDetail` | Queued / InProgress / Completed |
 | `PercentCompleted` | Tamamlanma yüzdesi |
 | `SourceAlias` | İşlem yapılan posta kutusunun alias'ı |
 
 ---
 
-## 4. İşlemin Tamamlanması ve Doğrulama
+## İşlemin Tamamlanması ve Doğrulama
 
-`StatusDetail` değeri **Completed** olduğunda dışa aktarım başarıyla tamamlanmıştır. PST dosyasının belirtilen `\\ip-adress\pst_yedek` klasöründe bulunup bulunmadığını kontrol edin.
+`StatusDetail` değeri **Completed** olduğunda işlem başarıyla tamamlanmıştır. PST dosyasının belirtilen klasörde bulunup bulunmadığını kontrol edin.
