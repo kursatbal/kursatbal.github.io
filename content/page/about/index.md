@@ -1,6 +1,6 @@
 ---
 title: Hakkımda
-description: Kürşat Bal — System Engineer, 4.5 yıl deneyim.
+description: Harun Kürşat Bal — System Engineer
 date: 2025-01-01
 lastmod: 2026-06-24
 menu:
@@ -10,30 +10,74 @@ menu:
             icon: user
 ---
 
-## Merhaba, ben Kürşat Bal
+## Harun Kürşat Bal
 
-System Engineer olarak 4,5 yıldır kurumsal BT altyapısı üzerinde çalışıyorum. Uzmanlık alanlarım:
+**System Engineer** — Tuzla, İstanbul
 
-- **Active Directory & Identity** — AD DS, GPO, AD Connect, Azure AD / Entra ID
-- **VMware** — vSphere, ESXi, vCenter, vSAN
-- **Microsoft 365** — Exchange Online, Teams, SharePoint, Intune, Defender
-- **Güvenlik** — Endpoint protection, conditional access, sertifika yönetimi, MFA
+Bilgisayar Mühendisliği mezunu, kurumsal BT altyapıları üzerine 4+ yıl deneyimli sistem mühendisi. Şu anda **vMind Bilgi ve Teknolojileri A.Ş.** bünyesinde görev yapıyorum.
 
-## Bu Blog Neden?
+---
 
-Teknik çözümleri, kurulum notlarını ve öğrendiklerimi belgelemek için açtım. AD ortamındaki bir soruna çözüm ararken ya da VMware best-practice arşivinize bakış atmak isterken buradaki yazıları faydalı bulacağınızı umuyorum.
+## İş Deneyimi
 
-## Kategoriler
+**System Engineer** — vMind Bilgi ve Teknolojileri A.Ş. · İstanbul
+`Mayıs 2024 – Devam Ediyor`
 
-| Alan | Konular |
+- Dell, HP, IBM ve Nutanix sunucu/depolama sistemlerinin fiziksel kurulumu ve devreye alınması
+- SAN switch kurulumu ve konfigürasyonu
+- VMware, Hyper-V, Sangfor sanallaştırma altyapılarının kurulumu ve konfigürasyonu
+- Windows Server rollerinin (DNS, DHCP, WSUS, IIS, LAPS, Active Directory, RDS, GPO) kurulumu ve yönetimi
+- Active Directory ve Entra ID (Azure AD) hibrit kimlik yönetimi, AD Connect, GPO tasarımı ve sorun giderme
+- Exchange Server (on-prem & Office 365) kurulumu; Exchange–Exchange Online–POP3/IMAP geçiş yönetimi
+- Enterprise Vault arşivleme sistemleri kurulumu ve yönetimi
+- IronPort, SMG ve TrendMicro mail gateway yönetimi
+- Citrix VDI ortamı yönetimi ve konfigürasyonu
+- Veeam Backup & Replication ile yedekleme; Networker ve PPDM; DR simülasyonları
+- Orta düzey Linux sistem yönetimi ve NAS kurulumu
+
+**System Engineer** — Neocom İletişim Teknolojileri A.Ş. · İstanbul
+`Nisan 2022 – Mayıs 2024`
+
+**Akademik Planlama Uzmanı** — Haliç Üniversitesi · İstanbul
+`Aralık 2019 – Mayıs 2021`
+
+---
+
+## Teknik Yetkinlikler
+
+| Alan | Teknolojiler |
 |---|---|
-| Active Directory | GPO, DNS, DHCP, Replication, Trusts, Tiering |
-| VMware | ESXi kurulum, vSAN, HA/DRS, snapshot yönetimi |
-| Microsoft 365 | Exchange, Teams, Intune MDM/MAM, Defender |
-| Security | Zero Trust, MFA, PAM, LAPS, CIS Benchmarks |
+| Kimlik & Dizin | Active Directory, Entra ID, AD Connect, GPO, LAPS |
+| Sanallaştırma | VMware vSphere, Hyper-V, Sangfor, Citrix VDI |
+| Microsoft 365 | Exchange Online, SharePoint, Teams, Intune |
+| Windows Server | DNS, DHCP, WSUS, IIS, RDS, DFS |
+| Yedekleme & DR | Veeam B&R, Networker, PPDM, DR simülasyonları |
+| Mail Security | IronPort, SMG, TrendMicro, Enterprise Vault |
+| Donanım | Dell, HP, IBM, Nutanix sunucu & SAN sistemleri |
+| Linux & NAS | Orta düzey Linux sistem yönetimi, NAS konfigürasyonu |
+
+---
+
+## Sertifikalar
+
+- **Microsoft Certified: Security, Compliance, and Identity Fundamentals** — Microsoft · Mayıs 2026
+- **Broadcom Certified Expert – VMware Cloud Foundation (Pre-Sales)** — Broadcom · Mart 2026
+- **Broadcom Proven Professional – VMware Cloud Foundation (Pre-Sales)** — Broadcom · Mart 2026
+- **NVIDIA Virtual Desktops Technical Curriculum** — NVIDIA · Mayıs 2025
+- **Microsoft Certified: Azure Administrator Associate** — Microsoft · Kasım 2022
+- **H3C Wi-Fi Product & Configuration Training** — H3C · Haziran 2022
+- **Bulut Bilişim Uzmanlığı** — İstanbul Topkapı Üniversitesi · Mart 2022
+
+---
+
+## Eğitim
+
+**Bilgisayar Mühendisliği** — Haliç Üniversitesi · 2024
+
+---
 
 ## İletişim
 
-- **Email**: kbal@vmind.com.tr
+- **Email**: krstball@gmail.com
 - **LinkedIn**: [linkedin.com/in/kursatbal](https://linkedin.com/in/kursatbal)
 - **GitHub**: [github.com/kursatbal](https://github.com/kursatbal)
