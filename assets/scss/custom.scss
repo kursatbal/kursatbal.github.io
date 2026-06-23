@@ -1,0 +1,110 @@
+// ── Accent Color: Professional Blue ──────────────────────────────────
+:root {
+    --accent-color: #1a56db;
+    --accent-color-darker: #1240a4;
+    --accent-color-text: #fff;
+}
+
+:root[data-scheme="dark"] {
+    --accent-color: #60a5fa;
+    --accent-color-darker: #3b82f6;
+    --accent-color-text: #000;
+}
+
+// ── Card Hover Effect ─────────────────────────────────────────────────
+.article-list article {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-l4);
+    }
+}
+
+// ── Accordion (details / summary) ─────────────────────────────────────
+details {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    margin: 12px 0;
+    overflow: hidden;
+    border-left: 4px solid var(--accent-color);
+
+    summary {
+        padding: 14px 20px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.55rem;
+        color: var(--card-text-color-main);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        user-select: none;
+        transition: background 0.2s ease;
+
+        &::before {
+            content: "▶";
+            font-size: 0.75em;
+            color: var(--accent-color);
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover {
+            background: var(--card-background-selected);
+        }
+    }
+
+    &[open] > summary::before {
+        transform: rotate(90deg);
+    }
+
+    & > *:not(summary) {
+        padding: 4px 20px 18px 20px;
+        animation: fadeIn 0.2s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── Table Improvements ────────────────────────────────────────────────
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+
+    th {
+        background: var(--accent-color);
+        color: var(--accent-color-text);
+        padding: 10px 14px;
+        text-align: left;
+        font-size: 1.4rem;
+    }
+
+    td {
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--card-separator-color);
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+// ── Tag Hover ─────────────────────────────────────────────────────────
+.article-tags a {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+// ── Sidebar Name Color ────────────────────────────────────────────────
+.sidebar .site-name {
+    color: var(--accent-color);
+}

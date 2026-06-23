@@ -12,16 +12,15 @@ menu:
 
 ## Harun Kürşat Bal
 
-**System Engineer** — Tuzla, İstanbul
-
-Bilgisayar Mühendisliği mezunu, kurumsal BT altyapıları üzerine 4+ yıl deneyimli sistem mühendisi. Şu anda **vMind Bilgi ve Teknolojileri A.Ş.** bünyesinde görev yapıyorum.
+**System Engineer** — Tuzla, İstanbul  
+Bilgisayar Mühendisliği mezunu · vMind Bilgi ve Teknolojileri A.Ş.
 
 ---
 
-## İş Deneyimi
+<details>
+<summary>💼 İş Deneyimi</summary>
 
-**System Engineer** — vMind Bilgi ve Teknolojileri A.Ş. · İstanbul
-`Mayıs 2024 – Devam Ediyor`
+**System Engineer** — vMind Bilgi ve Teknolojileri A.Ş. · İstanbul · `Mayıs 2024 – Devam Ediyor`
 
 - Dell, HP, IBM ve Nutanix sunucu/depolama sistemlerinin fiziksel kurulumu ve devreye alınması
 - SAN switch kurulumu ve konfigürasyonu
@@ -32,33 +31,35 @@ Bilgisayar Mühendisliği mezunu, kurumsal BT altyapıları üzerine 4+ yıl den
 - Enterprise Vault arşivleme sistemleri kurulumu ve yönetimi
 - IronPort, SMG ve TrendMicro mail gateway yönetimi
 - Citrix VDI ortamı yönetimi ve konfigürasyonu
-- Veeam Backup & Replication ile yedekleme; Networker ve PPDM; DR simülasyonları
+- Veeam Backup & Replication; Networker ve PPDM; DR simülasyonları
 - Orta düzey Linux sistem yönetimi ve NAS kurulumu
-
-**System Engineer** — Neocom İletişim Teknolojileri A.Ş. · İstanbul
-`Nisan 2022 – Mayıs 2024`
-
-**Akademik Planlama Uzmanı** — Haliç Üniversitesi · İstanbul
-`Aralık 2019 – Mayıs 2021`
 
 ---
 
-## Teknik Yetkinlikler
+**System Engineer** — Neocom İletişim Teknolojileri A.Ş. · İstanbul · `Nisan 2022 – Mayıs 2024`
+
+**Akademik Planlama Uzmanı** — Haliç Üniversitesi · İstanbul · `Aralık 2019 – Mayıs 2021`
+
+</details>
+
+<details>
+<summary>🛠️ Teknik Yetkinlikler</summary>
 
 | Alan | Teknolojiler |
 |---|---|
 | Kimlik & Dizin | Active Directory, Entra ID, AD Connect, GPO, LAPS |
-| Sanallaştırma | VMware vSphere, Hyper-V, Sangfor, Citrix VDI |
-| Microsoft 365 | Exchange Online, SharePoint, Teams, Intune |
+| Sanallaştırma | VMware vSphere, Hyper-V, Sangfor, Citrix VDI, NVIDIA VDI |
+| Microsoft 365 | Exchange Online, SharePoint, Teams, Office 365 geçişleri |
 | Windows Server | DNS, DHCP, WSUS, IIS, RDS, DFS |
 | Yedekleme & DR | Veeam B&R, Networker, PPDM, DR simülasyonları |
 | Mail Security | IronPort, SMG, TrendMicro, Enterprise Vault |
 | Donanım | Dell, HP, IBM, Nutanix sunucu & SAN sistemleri |
 | Linux & NAS | Orta düzey Linux sistem yönetimi, NAS konfigürasyonu |
 
----
+</details>
 
-## Sertifikalar
+<details>
+<summary>🏆 Sertifikalar</summary>
 
 - **Microsoft Certified: Security, Compliance, and Identity Fundamentals** — Microsoft · Mayıs 2026
 - **Broadcom Certified Expert – VMware Cloud Foundation (Pre-Sales)** — Broadcom · Mart 2026
@@ -68,16 +69,20 @@ Bilgisayar Mühendisliği mezunu, kurumsal BT altyapıları üzerine 4+ yıl den
 - **H3C Wi-Fi Product & Configuration Training** — H3C · Haziran 2022
 - **Bulut Bilişim Uzmanlığı** — İstanbul Topkapı Üniversitesi · Mart 2022
 
----
+</details>
 
-## Eğitim
+<details>
+<summary>🎓 Eğitim</summary>
 
 **Bilgisayar Mühendisliği** — Haliç Üniversitesi · 2024
 
----
+</details>
 
-## İletişim
+<details>
+<summary>📬 İletişim</summary>
 
 - **Email**: krstball@gmail.com
 - **LinkedIn**: [linkedin.com/in/kursatbal](https://linkedin.com/in/kursatbal)
 - **GitHub**: [github.com/kursatbal](https://github.com/kursatbal)
+
+</details>
