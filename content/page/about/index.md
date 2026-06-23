@@ -82,7 +82,7 @@ Bilgisayar Mühendisliği mezunu · vMind Bilgi ve Teknolojileri A.Ş.
 <summary>📬 İletişim</summary>
 
 - **Email**: krstball@gmail.com
-- **LinkedIn**: [linkedin.com/in/kursatbal](https://linkedin.com/in/kursatbal)
+- **LinkedIn**: [linkedin.com/in/harunkursatbal](https://www.linkedin.com/in/harunkursatbal/)
 - **GitHub**: [github.com/kursatbal](https://github.com/kursatbal)
 
 </details>
