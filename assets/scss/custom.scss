@@ -1,19 +1,26 @@
-// ── Background: Dot Grid + Aurora ────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+// BACKGROUND: Dot Grid + Aurora
+// ══════════════════════════════════════════════════════════════════════
 :root {
     --body-background: #f0f4ff;
+    --gradient-primary: linear-gradient(135deg, #1a56db 0%, #7c3aed 60%, #0ea5e9 100%);
+    --neon-glow: 0 0 8px rgba(96, 165, 250, 0.7), 0 0 20px rgba(96, 165, 250, 0.4);
 }
 
 :root[data-scheme="dark"] {
+    --accent-color: #60a5fa;
+    --accent-color-darker: #3b82f6;
+    --accent-color-text: #000;
     --body-background: #0f172a;
 }
 
 body {
     background-color: #f0f4ff;
     background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(26, 86, 219, 0.13) 0%, transparent 48%),
-        radial-gradient(ellipse at 85% 10%, rgba(124, 58, 237, 0.10) 0%, transparent 42%),
-        radial-gradient(ellipse at 55% 88%, rgba(14, 165, 233, 0.11) 0%, transparent 44%),
-        radial-gradient(circle at 1px 1px, rgba(26, 86, 219, 0.13) 1px, transparent 0);
+        radial-gradient(ellipse at 15% 20%, rgba(26,86,219,0.13) 0%, transparent 48%),
+        radial-gradient(ellipse at 85% 10%, rgba(124,58,237,0.10) 0%, transparent 42%),
+        radial-gradient(ellipse at 55% 88%, rgba(14,165,233,0.11) 0%, transparent 44%),
+        radial-gradient(circle at 1px 1px, rgba(26,86,219,0.13) 1px, transparent 0);
     background-size: auto, auto, auto, 28px 28px;
     background-attachment: fixed, fixed, fixed, scroll;
 }
@@ -21,43 +28,125 @@ body {
 [data-scheme="dark"] body {
     background-color: #0f172a;
     background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(26, 86, 219, 0.30) 0%, transparent 48%),
-        radial-gradient(ellipse at 85% 10%, rgba(124, 58, 237, 0.25) 0%, transparent 42%),
-        radial-gradient(ellipse at 55% 88%, rgba(14, 165, 233, 0.22) 0%, transparent 44%),
-        radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.10) 1px, transparent 0);
+        radial-gradient(ellipse at 15% 20%, rgba(26,86,219,0.30) 0%, transparent 48%),
+        radial-gradient(ellipse at 85% 10%, rgba(124,58,237,0.25) 0%, transparent 42%),
+        radial-gradient(ellipse at 55% 88%, rgba(14,165,233,0.22) 0%, transparent 44%),
+        radial-gradient(circle at 1px 1px, rgba(96,165,250,0.10) 1px, transparent 0);
     background-size: auto, auto, auto, 28px 28px;
     background-attachment: fixed, fixed, fixed, scroll;
 }
 
-// ── Accent Color ─────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+// ACCENT COLOR (light mode)
+// ══════════════════════════════════════════════════════════════════════
 :root {
     --accent-color: #1a56db;
     --accent-color-darker: #1240a4;
     --accent-color-text: #fff;
-    --gradient-primary: linear-gradient(135deg, #1a56db 0%, #7c3aed 60%, #0ea5e9 100%);
 }
 
-:root[data-scheme="dark"] {
-    --accent-color: #60a5fa;
-    --accent-color-darker: #3b82f6;
-    --accent-color-text: #000;
+// ══════════════════════════════════════════════════════════════════════
+// GLASSMORPHISM SIDEBAR
+// ══════════════════════════════════════════════════════════════════════
+.left-sidebar {
+    background: rgba(255,255,255,0.55) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-right: 1px solid rgba(26,86,219,0.12);
+    box-shadow: 4px 0 32px rgba(26,86,219,0.08);
 }
 
-// ── Sidebar Avatar Ring ───────────────────────────────────────────────
-.site-avatar {
-    .site-logo {
-        border: 3px solid transparent;
-        background-clip: padding-box;
-        box-shadow: 0 0 0 3px var(--accent-color), 0 4px 16px rgba(26, 86, 219, 0.25);
-        transition: box-shadow 0.3s ease;
+[data-scheme="dark"] .left-sidebar {
+    background: rgba(15,23,42,0.72) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-right: 1px solid rgba(96,165,250,0.12);
+    box-shadow: 4px 0 32px rgba(26,86,219,0.20);
+}
 
-        &:hover {
-            box-shadow: 0 0 0 3px #7c3aed, 0 6px 20px rgba(124, 58, 237, 0.35);
+// ══════════════════════════════════════════════════════════════════════
+// SIDEBAR SITE NAME — NEON GLOW
+// ══════════════════════════════════════════════════════════════════════
+.sidebar .site-name a {
+    color: var(--accent-color);
+    transition: text-shadow 0.3s ease;
+}
+
+[data-scheme="dark"] .sidebar .site-name a {
+    text-shadow: 0 0 12px rgba(96,165,250,0.6);
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// AVATAR RING
+// ══════════════════════════════════════════════════════════════════════
+.site-avatar .site-logo {
+    border: 3px solid transparent;
+    box-shadow: 0 0 0 3px var(--accent-color), 0 4px 20px rgba(26,86,219,0.30);
+    transition: box-shadow 0.35s ease;
+
+    &:hover {
+        box-shadow: 0 0 0 3px #7c3aed, 0 0 20px rgba(124,58,237,0.50), 0 0 40px rgba(124,58,237,0.25);
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// MENU ITEMS — NEON HOVER
+// ══════════════════════════════════════════════════════════════════════
+#main-menu li a {
+    border-radius: 10px;
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+
+    svg {
+        transition: filter 0.25s ease;
+    }
+
+    &:hover {
+        background: rgba(26,86,219,0.10);
+        color: var(--accent-color) !important;
+
+        svg {
+            filter: drop-shadow(0 0 5px rgba(96,165,250,0.8));
+        }
+
+        span {
+            text-shadow: 0 0 8px rgba(96,165,250,0.5);
         }
     }
 }
 
-// ── Sidebar Email Row ─────────────────────────────────────────────────
+[data-scheme="dark"] #main-menu li a:hover {
+    background: rgba(96,165,250,0.10);
+    box-shadow: inset 0 0 16px rgba(96,165,250,0.06);
+}
+
+#main-menu li.current a {
+    background: rgba(26,86,219,0.12);
+    color: var(--accent-color) !important;
+    box-shadow: inset 3px 0 0 var(--accent-color);
+
+    svg {
+        filter: drop-shadow(0 0 4px rgba(96,165,250,0.7));
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// SOCIAL ICON HOVER
+// ══════════════════════════════════════════════════════════════════════
+.menu-social li a {
+    transition: transform 0.25s ease, filter 0.25s ease;
+    border-radius: 8px;
+    padding: 4px;
+
+    &:hover {
+        transform: translateY(-3px);
+        filter: drop-shadow(0 0 6px rgba(96,165,250,0.8));
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// SIDEBAR EMAIL ROW
+// ══════════════════════════════════════════════════════════════════════
 .sidebar-email {
     display: flex;
     align-items: center;
@@ -78,30 +167,61 @@ body {
     span { line-height: 1; }
 }
 
-// ── Post Card Gradient Top Bar ────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+// POST CARDS — GRADIENT TOP + ANIMATED BORDER + HOVER
+// ══════════════════════════════════════════════════════════════════════
 .article-list article {
     position: relative;
     overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
 
+    // Gradient top stripe
     &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
+        top: 0; left: 0; right: 0;
+        height: 3px;
         background: var(--gradient-primary);
         z-index: 1;
     }
 
+    // Gradient border glow on hover
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: var(--card-border-radius);
+        padding: 1px;
+        background: linear-gradient(135deg,
+            rgba(26,86,219,0.4),
+            rgba(124,58,237,0.4),
+            rgba(14,165,233,0.4));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                      linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box,
+              linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
     &:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-l4);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(26,86,219,0.18), var(--shadow-l3);
+
+        &::after { opacity: 1; }
     }
 }
 
-// ── Tech Badge Grid (About page) ──────────────────────────────────────
+[data-scheme="dark"] .article-list article:hover {
+    box-shadow: 0 12px 40px rgba(96,165,250,0.18), var(--shadow-l3);
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// TECH BADGES (About)
+// ══════════════════════════════════════════════════════════════════════
 .tech-badges {
     display: flex;
     flex-wrap: wrap;
@@ -111,23 +231,25 @@ body {
     img {
         height: 28px;
         border-radius: 4px;
-        transition: transform 0.2s ease, opacity 0.2s ease;
+        transition: transform 0.2s ease, filter 0.2s ease;
 
         &:hover {
             transform: translateY(-2px);
-            opacity: 0.85;
+            filter: brightness(1.1) drop-shadow(0 3px 6px rgba(26,86,219,0.4));
         }
     }
 }
 
-// ── Accordion ─────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+// ACCORDION
+// ══════════════════════════════════════════════════════════════════════
 details {
     background: var(--card-background);
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
     margin: 10px 0;
     overflow: hidden;
-    border-left: 4px solid var(--accent-color);
+    border-left: 3px solid var(--accent-color);
 
     summary {
         padding: 14px 20px;
@@ -151,7 +273,6 @@ details {
         }
 
         &::-webkit-details-marker { display: none; }
-
         &:hover { background: var(--card-background-selected); }
     }
 
@@ -168,7 +289,9 @@ details {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-// ── Table ─────────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+// TABLE
+// ══════════════════════════════════════════════════════════════════════
 .article-content table {
     width: 100%;
     border-collapse: collapse;
@@ -189,6 +312,3 @@ details {
 
     tr:last-child td { border-bottom: none; }
 }
-
-// ── Sidebar Name ──────────────────────────────────────────────────────
-.sidebar .site-name { color: var(--accent-color); }
