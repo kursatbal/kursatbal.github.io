@@ -378,3 +378,117 @@ details {
 
     tr:last-child td { border-bottom: none; }
 }
+
+// ══════════════════════════════════════════════════════════════════════
+// TABLE OF CONTENTS
+// ══════════════════════════════════════════════════════════════════════
+.widget--toc {
+    .widget--title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--card-text-color-secondary);
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent-color);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        svg {
+            width: 15px;
+            height: 15px;
+            stroke: var(--accent-color);
+        }
+    }
+}
+
+#TableOfContents {
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    // top-level items
+    > ol > li {
+        margin: 2px 0;
+        padding-left: 0;
+
+        > a {
+            display: block;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--card-text-color-main);
+            border-left: 2px solid transparent;
+            transition: all 0.18s ease;
+            line-height: 1.4;
+
+            &:hover {
+                color: var(--accent-color);
+                background: rgba(26, 86, 219, 0.06);
+                border-left-color: var(--accent-color);
+            }
+        }
+
+        &.active-class > a {
+            color: var(--accent-color);
+            background: rgba(26, 86, 219, 0.08);
+            border-left-color: var(--accent-color);
+            font-weight: 700;
+        }
+    }
+
+    // nested items
+    > ol > li > ol {
+        padding-left: 14px;
+        border-left: 1.5px solid rgba(26, 86, 219, 0.15);
+        margin: 2px 0 4px 10px;
+
+        li {
+            margin: 1px 0;
+
+            a {
+                display: block;
+                padding: 4px 8px;
+                border-radius: 5px;
+                font-size: 1.25rem;
+                font-weight: 400;
+                color: var(--card-text-color-secondary);
+                transition: all 0.18s ease;
+                line-height: 1.4;
+
+                &:hover {
+                    color: var(--accent-color);
+                    background: rgba(26, 86, 219, 0.05);
+                }
+            }
+
+            &.active-class a {
+                color: var(--accent-color);
+                font-weight: 600;
+                background: rgba(26, 86, 219, 0.06);
+            }
+        }
+    }
+}
+
+[data-scheme="dark"] #TableOfContents {
+    > ol > li > a:hover,
+    > ol > li.active-class > a {
+        background: rgba(96, 165, 250, 0.08);
+        border-left-color: var(--accent-color);
+    }
+
+    > ol > li > ol {
+        border-left-color: rgba(96, 165, 250, 0.18);
+
+        li a:hover,
+        li.active-class a {
+            background: rgba(96, 165, 250, 0.06);
+        }
+    }
+}
