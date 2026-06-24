@@ -24,7 +24,6 @@
 [widgets]
     homepage = [
         {type = "search"},
-        {type = "tech-stack"},
         {type = "contact-card"},
         {type = "archives", limit = 5},
         {type = "tag-cloud", limit = 10}
