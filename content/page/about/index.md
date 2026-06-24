@@ -70,13 +70,14 @@ menu:
 
 | Sertifika | Kurum | Tarih |
 |---|---|---|
-| Security, Compliance & Identity Fundamentals | Microsoft | Mayıs 2026 |
+| Enterprise Software Technical Curriculum | NVIDIA | Haziran 2026 |
+| AI Skills Fest 2026 | Microsoft | Haziran 2026 |
+| Security, Compliance & Identity Fundamentals (SC-900) | Microsoft | Mayıs 2026 |
 | Certified Expert – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
 | Proven Professional – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
 | Virtual Desktops Technical Curriculum | NVIDIA | Mayıs 2025 |
 | Azure Administrator Associate (AZ-104) | Microsoft | Kasım 2022 |
 | Wi-Fi Product & Configuration Training | H3C | Haziran 2022 |
-| Bulut Bilişim Uzmanlığı | İstanbul Topkapı Üniversitesi | Mart 2022 |
 
 </details>
 

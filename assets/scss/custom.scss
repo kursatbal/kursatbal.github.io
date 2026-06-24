@@ -584,13 +584,13 @@ details {
         .cert-card-stripe   { background: #76B900; }
         .cert-card-vendor-name { color: #76B900; }
     }
+    &[data-vendor="broadcom"] {
+        .cert-card-stripe   { background: #CC092F; }
+        .cert-card-vendor-name { color: #CC092F; }
+    }
     &[data-vendor="h3c"] {
         .cert-card-stripe   { background: #E4002B; }
         .cert-card-vendor-name { color: #E4002B; }
-    }
-    &[data-vendor="university"] {
-        .cert-card-stripe   { background: #6B46C1; }
-        .cert-card-vendor-name { color: #6B46C1; }
     }
 }
 
