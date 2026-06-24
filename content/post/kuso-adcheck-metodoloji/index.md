@@ -1,9 +1,10 @@
 ---
-title: "Kuso AD Check — Active Directory Güvenlik Değerlendirmesi Metodoloji"
+title: "Kuso AD Check — Active Directory Güvenlik Değerlendirmesi"
 description: "Kuso AD Check'in 16 analiz ekranı ve 6 risk kategorisindeki 96 güvenlik kuralının teknik metodolojisi: Tier 0'dan Trust'lara AD güvenlik yüzeyi."
 date: 2024-06-23
 draft: false
 slug: kuso-adcheck-metodoloji
+weight: 1
 aliases:
     - /p/kuso-ad-check-active-directory-güvenlik-değerlendirmesi-metodolojisi/
 categories:
