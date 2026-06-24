@@ -195,17 +195,17 @@ body {
 // ══════════════════════════════════════════════════════════════════════
 // LEFT SIDEBAR — CENTER AVATAR + SOCIAL
 // ══════════════════════════════════════════════════════════════════════
-.left-sidebar > header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.left-sidebar header .site-avatar {
+    align-self: center;
+}
+
+.left-sidebar header .site-meta {
+    text-align: center;
+    width: 100%;
 }
 
 .menu-social {
-    display: flex;
     justify-content: center;
-    padding: 0;
-    list-style: none;
 }
 
 .sidebar-email {
