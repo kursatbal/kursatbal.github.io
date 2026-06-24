@@ -1,10 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48">
-  <!-- Red circle -->
-  <circle cx="24" cy="24" r="22" fill="#CC092F"/>
-  <!-- White antenna/wave arcs -->
-  <path d="M13 31 Q24 23 35 31" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M10 24 Q24 14 38 24" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M14 17 Q24 10 34 17" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round"/>
-  <!-- BROADCOM text -->
-  <text x="56" y="31" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="20" fill="#1A1A1A" letter-spacing="0.8">BROADCOM</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="10" fill="#CC092F"/>
+  <text x="24" y="33" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle">B</text>
 </svg>

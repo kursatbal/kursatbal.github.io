@@ -42,42 +42,47 @@ menu:
 
 </details>
 
-<details>
+<details open>
 <summary>💼 İş Deneyimi</summary>
 
-**System Engineer** — vMind Bilgi ve Teknolojileri A.Ş. · İstanbul · `Mayıs 2024 – Devam Ediyor`
+<div class="job-section">
 
-- Dell, HP, IBM ve Nutanix sunucu/depolama sistemlerinin fiziksel kurulumu ve devreye alınması
-- SAN switch kurulumu ve konfigürasyonu
-- VMware, Hyper-V, Sangfor sanallaştırma altyapılarının kurulumu ve konfigürasyonu
-- Windows Server rollerinin (DNS, DHCP, WSUS, IIS, LAPS, Active Directory, RDS, GPO) yönetimi
-- Active Directory ve Entra ID hibrit kimlik yönetimi, AD Connect, GPO tasarımı
-- Exchange Server & Office 365 kurulumu; geçiş süreçleri yönetimi
-- Enterprise Vault arşivleme, IronPort/SMG/TrendMicro mail gateway yönetimi
-- Citrix VDI, Veeam B&R, Networker, PPDM; DR simülasyonları
-- Linux sistem yönetimi ve NAS kurulumu
+<div class="job-card">
+<div class="job-card-header">
+<span class="job-card-role">System Engineer</span>
+<span class="job-card-period">May 2024 – Günümüz</span>
+</div>
+<div class="job-card-company">vMind Bilgi ve Teknolojileri A.Ş. · İstanbul</div>
+<ul>
+<li>Dell, HP, IBM ve Nutanix sunucu/depolama sistemlerinin fiziksel kurulumu ve devreye alınması</li>
+<li>SAN switch kurulumu ve konfigürasyonu</li>
+<li>VMware, Hyper-V, Sangfor sanallaştırma altyapılarının kurulumu ve konfigürasyonu</li>
+<li>Windows Server rollerinin (DNS, DHCP, WSUS, IIS, LAPS, Active Directory, RDS, GPO) yönetimi</li>
+<li>Active Directory ve Entra ID hibrit kimlik yönetimi, AD Connect, GPO tasarımı</li>
+<li>Exchange Server &amp; Office 365 kurulumu; geçiş süreçleri yönetimi</li>
+<li>Enterprise Vault arşivleme, IronPort/SMG/TrendMicro mail gateway yönetimi</li>
+<li>Citrix VDI, Veeam B&amp;R, Networker, PPDM; DR simülasyonları</li>
+<li>Linux sistem yönetimi ve NAS kurulumu</li>
+</ul>
+</div>
 
----
+<div class="job-card">
+<div class="job-card-header">
+<span class="job-card-role">System Engineer</span>
+<span class="job-card-period">Nis 2022 – May 2024</span>
+</div>
+<div class="job-card-company">Neocom İletişim Teknolojileri A.Ş. · İstanbul</div>
+</div>
 
-**System Engineer** — Neocom İletişim Teknolojileri A.Ş. · İstanbul · `Nisan 2022 – Mayıs 2024`
+<div class="job-card">
+<div class="job-card-header">
+<span class="job-card-role">Akademik Planlama Uzmanı</span>
+<span class="job-card-period">Ara 2019 – May 2021</span>
+</div>
+<div class="job-card-company">Haliç Üniversitesi · İstanbul</div>
+</div>
 
-**Akademik Planlama Uzmanı** — Haliç Üniversitesi · İstanbul · `Aralık 2019 – Mayıs 2021`
-
-</details>
-
-<details>
-<summary>🏆 Sertifikalar</summary>
-
-| Sertifika | Kurum | Tarih |
-|---|---|---|
-| Enterprise Software Technical Curriculum | NVIDIA | Haziran 2026 |
-| AI Skills Fest 2026 | Microsoft | Haziran 2026 |
-| Security, Compliance & Identity Fundamentals (SC-900) | Microsoft | Mayıs 2026 |
-| Certified Expert – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
-| Proven Professional – VMware Cloud Foundation (Pre-Sales) | Broadcom | Mart 2026 |
-| Virtual Desktops Technical Curriculum | NVIDIA | Mayıs 2025 |
-| Azure Administrator Associate (AZ-104) | Microsoft | Kasım 2022 |
-| Wi-Fi Product & Configuration Training | H3C | Haziran 2022 |
+</div>
 
 </details>
 

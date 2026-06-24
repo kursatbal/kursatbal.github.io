@@ -616,38 +616,57 @@ details {
     }
 }
 
-// Wide-logo variant: logo as full-width banner on top, text below
-.cert-card--wide {
-    .cert-card-inner {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
-    }
-
-    .cert-card-logo-banner {
-        display: flex;
-        align-items: center;
-        padding: 10px 14px 6px;
-
-        img {
-            max-height: 28px;
-            max-width: 160px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-    }
-
-    .cert-card-body {
-        padding: 0 14px 10px;
-    }
-}
-
 [data-scheme="dark"] .cert-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-[data-scheme="dark"] .cert-card--wide .cert-card-logo-banner img {
-    filter: brightness(1.1);
+// İş Deneyimi job cards
+.job-card {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--card-separator-color);
+
+    &:last-child { border-bottom: none; padding-bottom: 4px; }
+
+    .job-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 3px;
+    }
+
+    .job-card-role {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--card-text-color-main);
+    }
+
+    .job-card-period {
+        font-size: 1.1rem;
+        color: var(--card-text-color-secondary);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .job-card-company {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--card-text-color-secondary);
+
+        li {
+            font-size: 1.2rem;
+            line-height: 1.55;
+            margin-bottom: 3px;
+        }
+    }
 }
+
+.job-section { margin-top: 4px; }
