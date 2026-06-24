@@ -1,7 +1,7 @@
 [[main]]
     identifier = "projects"
     name       = "Projeler"
-    url        = "/categories/projects/"
+    url        = "/categories/"
     weight     = -80
 
     [main.params]

@@ -4,7 +4,7 @@ description: "VMware vSphere ortamı için Veeam Backup & Replication 12.x kapsa
 date: 2024-12-15
 draft: false
 categories:
-    - Projects
+    - Veeam
 tags:
     - Veeam
     - VMware

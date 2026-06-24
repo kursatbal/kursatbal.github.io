@@ -4,7 +4,7 @@ description: "Microsoft Exchange Server ortamında NTLM'den Kerberos kimlik doğ
 date: 2025-11-10
 draft: false
 categories:
-    - Projects
+    - Exchange
 tags:
     - Exchange
     - Kerberos

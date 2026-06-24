@@ -4,7 +4,7 @@ description: "Exchange On-Premises ortamında posta kutularının PST dosyaları
 date: 2025-07-08
 draft: false
 categories:
-    - Projects
+    - Exchange
 tags:
     - Exchange
     - PST

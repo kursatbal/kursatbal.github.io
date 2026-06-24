@@ -4,7 +4,7 @@ description: "Active Directory hazırlıklarından Entra Connect Cloud Sync kuru
 date: 2025-06-30
 draft: false
 categories:
-    - Projects
+    - Exchange
 tags:
     - Exchange
     - Microsoft 365
