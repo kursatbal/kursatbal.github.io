@@ -14,7 +14,7 @@ menu:
 
 ## Harun Kürşat Bal
 
-**System Engineer** — Tuzla, İstanbul · vMind Bilgi ve Teknolojileri A.Ş.
+**System Engineer**
 
 ---
 
