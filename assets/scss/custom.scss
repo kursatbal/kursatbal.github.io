@@ -616,6 +616,38 @@ details {
     }
 }
 
+// Wide-logo variant: logo as full-width banner on top, text below
+.cert-card--wide {
+    .cert-card-inner {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cert-card-logo-banner {
+        display: flex;
+        align-items: center;
+        padding: 10px 14px 6px;
+
+        img {
+            max-height: 28px;
+            max-width: 160px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    .cert-card-body {
+        padding: 0 14px 10px;
+    }
+}
+
 [data-scheme="dark"] .cert-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+[data-scheme="dark"] .cert-card--wide .cert-card-logo-banner img {
+    filter: brightness(1.1);
 }
