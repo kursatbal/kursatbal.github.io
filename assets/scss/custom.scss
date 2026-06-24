@@ -754,6 +754,48 @@ details {
 .job-section { margin-top: 4px; }
 
 // ══════════════════════════════════════════════════════════════════════
+// CALLOUT BOXES
+// ══════════════════════════════════════════════════════════════════════
+.callout {
+    padding: 14px 18px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    margin: 18px 0;
+    font-size: 1.25rem;
+    line-height: 1.6;
+
+    strong:first-child { display: block; margin-bottom: 4px; font-size: 1.2rem; }
+
+    &--warning {
+        border-color: #f59e0b;
+        background: rgba(245,158,11,0.08);
+        color: var(--card-text-color-main);
+    }
+    &--success {
+        border-color: #10b981;
+        background: rgba(16,185,129,0.07);
+        color: var(--card-text-color-main);
+    }
+    &--info {
+        border-color: #3b82f6;
+        background: rgba(59,130,246,0.07);
+        color: var(--card-text-color-main);
+    }
+    &--danger {
+        border-color: #ef4444;
+        background: rgba(239,68,68,0.07);
+        color: var(--card-text-color-main);
+    }
+}
+
+[data-scheme="dark"] {
+    .callout--warning { background: rgba(245,158,11,0.12); }
+    .callout--success { background: rgba(16,185,129,0.10); }
+    .callout--info    { background: rgba(59,130,246,0.10); }
+    .callout--danger  { background: rgba(239,68,68,0.10); }
+}
+
+// ══════════════════════════════════════════════════════════════════════
 // TECH STACK WIDGET
 // ══════════════════════════════════════════════════════════════════════
 .tech-stack-widget {
