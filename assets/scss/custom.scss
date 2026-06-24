@@ -193,6 +193,26 @@ body {
 }
 
 // ══════════════════════════════════════════════════════════════════════
+// LEFT SIDEBAR — CENTER AVATAR + SOCIAL
+// ══════════════════════════════════════════════════════════════════════
+.left-sidebar > header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-social {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-email {
+    justify-content: center;
+}
+
+// ══════════════════════════════════════════════════════════════════════
 // SOCIAL ICON HOVER
 // ══════════════════════════════════════════════════════════════════════
 .menu-social li a {
