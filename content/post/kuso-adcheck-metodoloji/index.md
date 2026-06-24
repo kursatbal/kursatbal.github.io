@@ -1,5 +1,5 @@
 ---
-title: "Kuso AD Check — Active Directory Güvenlik Değerlendirmesi Metodolojisi"
+title: "Kuso AD Check — Active Directory Güvenlik Değerlendirmesi Metodoloji"
 description: "Kuso AD Check'in 16 analiz ekranı ve 6 risk kategorisindeki 96 güvenlik kuralının teknik metodolojisi: Tier 0'dan Trust'lara AD güvenlik yüzeyi."
 date: 2024-06-23
 draft: false
@@ -12,6 +12,15 @@ tags:
     - MITRE ATT&CK
     - Penetration Testing
 ---
+
+<div class="download-box">
+  <div class="download-box-icon">⬇</div>
+  <div class="download-box-content">
+    <div class="download-box-title">KusoADCheck — Script Paketi</div>
+    <div class="download-box-desc">Aracı buradan indirebilirsiniz.</div>
+  </div>
+  <a class="download-box-btn" href="KusoADCheck.zip" download>İndir (.zip · 230 KB)</a>
+</div>
 
 Active Directory, bir organizasyonun kimlik, erişim ve politika altyapısının merkezidir. AD'i ele geçiren saldırgan tüm ortamı ele geçirmiş demektir. **Kuso AD Check**, bu yüzeyi sistematik olarak **16 menü ekranı** ve **6 risk kategorisinde 96 kural** ile tarayan, özel geliştirilmiş bir denetim aracıdır.
 
