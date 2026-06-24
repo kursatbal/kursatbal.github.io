@@ -3,6 +3,8 @@ title: Hakkımda
 description: Harun Kürşat Bal — System Engineer
 date: 2025-01-01
 lastmod: 2026-06-24
+layout: about
+toc: false
 menu:
     main:
         weight: -90
