@@ -25,7 +25,6 @@
     homepage = [
         {type = "search"},
         {type = "contact-card"},
-        {type = "archives", limit = 5},
         {type = "tag-cloud", limit = 10}
     ]
     page = [
