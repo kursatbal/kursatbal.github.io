@@ -544,8 +544,30 @@ details {
         flex-shrink: 0;
     }
 
+    .cert-card-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        flex-shrink: 0;
+        padding: 0 4px;
+
+        img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        &--text {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #E4002B;
+            letter-spacing: -0.03em;
+        }
+    }
+
     .cert-card-body {
-        padding: 10px 12px;
+        padding: 10px 10px 10px 0;
         display: flex;
         flex-direction: column;
         gap: 2px;
