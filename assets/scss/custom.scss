@@ -748,3 +748,119 @@ details {
 }
 
 .job-section { margin-top: 4px; }
+
+// ══════════════════════════════════════════════════════════════════════
+// TECH STACK WIDGET
+// ══════════════════════════════════════════════════════════════════════
+.tech-stack-widget {
+    .tech-stack-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+    .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 6px;
+        border-radius: 10px;
+        background: var(--card-background);
+        border: 1px solid var(--card-separator-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        cursor: default;
+
+        img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        span {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--card-text-color-secondary);
+            text-align: center;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(26,86,219,0.14);
+            border-color: rgba(26,86,219,0.35);
+
+            span { color: var(--accent-color); }
+        }
+    }
+}
+
+[data-scheme="dark"] .tech-stack-widget .tech-item:hover {
+    box-shadow: 0 6px 18px rgba(96,165,250,0.15);
+    border-color: rgba(96,165,250,0.30);
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// CONTACT CARD WIDGET
+// ══════════════════════════════════════════════════════════════════════
+.contact-card-widget {
+    .contact-card-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+    .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--card-separator-color);
+        background: var(--card-background);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--card-text-color-main) !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease;
+
+        svg { flex-shrink: 0; }
+
+        &:hover {
+            transform: translateX(4px);
+            text-decoration: none !important;
+        }
+
+        &--email:hover {
+            border-color: rgba(26,86,219,0.40);
+            background: rgba(26,86,219,0.06);
+            color: var(--accent-color) !important;
+            box-shadow: 0 4px 14px rgba(26,86,219,0.12);
+        }
+
+        &--linkedin:hover {
+            border-color: rgba(0,119,181,0.45);
+            background: rgba(0,119,181,0.07);
+            color: #0077b5 !important;
+            box-shadow: 0 4px 14px rgba(0,119,181,0.14);
+        }
+
+        &--github:hover {
+            border-color: rgba(36,41,47,0.35);
+            background: rgba(36,41,47,0.06);
+            color: var(--card-text-color-main) !important;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+        }
+    }
+}
+
+[data-scheme="dark"] .contact-card-widget {
+    .contact-link--github:hover {
+        border-color: rgba(255,255,255,0.20);
+        background: rgba(255,255,255,0.06);
+    }
+}

@@ -1,0 +1,31 @@
+<section class="widget tech-stack-widget">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <rect x="4" y="4" width="6" height="6" rx="1"/>
+            <rect x="14" y="4" width="6" height="6" rx="1"/>
+            <rect x="4" y="14" width="6" height="6" rx="1"/>
+            <rect x="14" y="14" width="6" height="6" rx="1"/>
+        </svg>
+    </div>
+    <h2 class="widget-title section-title">Tech Stack</h2>
+    <div class="tech-stack-grid">
+        {{ $techs := slice
+            (dict "icon" "/img/vendors/microsoft.svg"  "name" "Active Directory")
+            (dict "icon" "/img/vendors/microsoft.svg"  "name" "Microsoft 365")
+            (dict "icon" "/img/vendors/exchange.svg"   "name" "Exchange")
+            (dict "icon" "/img/vendors/entra.svg"      "name" "Entra ID")
+            (dict "icon" "/img/vendors/microsoft.svg"  "name" "Intune")
+            (dict "icon" "/img/vendors/veeam.svg"      "name" "Veeam")
+            (dict "icon" "/img/vendors/vmware.svg"     "name" "VMware")
+            (dict "icon" "/img/vendors/powershell.svg" "name" "PowerShell")
+            (dict "icon" "/img/vendors/h3c.svg"        "name" "H3C")
+        }}
+        {{ range $techs }}
+        <div class="tech-item" title="{{ .name }}">
+            <img src="{{ .icon }}" alt="{{ .name }}" loading="lazy">
+            <span>{{ .name }}</span>
+        </div>
+        {{ end }}
+    </div>
+</section>
