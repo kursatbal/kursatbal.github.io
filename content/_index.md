@@ -7,11 +7,11 @@ menu:
             icon: home
 ---
 
-<section class="fullscreen-hero">
+<div id="hero-landing">
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
   <div class="hero-body">
-    <div class="hero-role">System Engineer</div>
+    <p class="hero-role">System Engineer</p>
     <h1 class="hero-name">Harun Kürşat <span>BAL</span></h1>
     <p class="hero-bio-text">Windows Server, kimlik yönetimi ve sanallaştırma teknolojileri üzerine uzmanlaşmış; kurumsal altyapı güvenliğine odaklanan sistem mühendisi.</p>
     <div class="hero-chips">
@@ -28,9 +28,6 @@ menu:
       <span class="hero-cert hero-cert--nvidia">NVIDIA ETC</span>
       <span class="hero-cert hero-cert--h3c">H3C Wi-Fi</span>
     </div>
+    <button id="hero-enter">Yazılara Geç &darr;</button>
   </div>
-  <div class="hero-scroll">
-    <span>Yazılar</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-  </div>
-</section>
+</div>
