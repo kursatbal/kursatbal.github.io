@@ -16,7 +16,7 @@
 
 [colorScheme]
     toggle  = true
-    default = "light"
+    default = "dark"
 
 [comments]
     enabled = false
