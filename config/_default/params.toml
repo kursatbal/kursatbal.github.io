@@ -24,8 +24,7 @@
 [widgets]
     homepage = [
         {type = "search"},
-        {type = "contact-card"},
-        {type = "tag-cloud", limit = 10}
+        {type = "contact-card"}
     ]
     page = [
         {type = "toc"}
