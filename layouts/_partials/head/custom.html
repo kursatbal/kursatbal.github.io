@@ -1,0 +1,21 @@
+<script>
+(function () {
+    var bar;
+    function init() {
+        if (!document.querySelector('.article-content')) return;
+        bar = document.createElement('div');
+        bar.id = 'rpbar';
+        document.body.insertBefore(bar, document.body.firstChild);
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    }
+    function update() {
+        var s = window.scrollY,
+            h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h > 0) bar.style.width = Math.min(s / h * 100, 100) + '%';
+    }
+    document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', init)
+        : init();
+})();
+</script>
