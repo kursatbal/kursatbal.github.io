@@ -5,7 +5,7 @@ date: 2024-06-23
 draft: false
 slug: kuso-adcheck-metodoloji
 weight: 1
-image: cover.svg
+image: cover.png
 aliases:
     - /p/kuso-ad-check-active-directory-güvenlik-değerlendirmesi-metodolojisi/
 categories:
