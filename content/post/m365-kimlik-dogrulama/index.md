@@ -4,7 +4,6 @@ description: "MFA döngüleri, Outlook parola istekleri ve kimlik doğrulama end
 date: 2026-06-24
 draft: false
 slug: m365-kimlik-dogrulama-yapilandirmasi
-image: cover.png
 categories:
     - Microsoft 365
 tags:

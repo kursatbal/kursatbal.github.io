@@ -197,16 +197,9 @@ body {
 }
 
 // ══════════════════════════════════════════════════════════════════════
-// FEATURED IMAGE — hide on post page (keep visible in article cards)
+// FEATURED IMAGE — HIDE GLOBALLY
 // ══════════════════════════════════════════════════════════════════════
-.article-page .article-image { display: none !important; }
-
-.article-list .article-image img {
-    transition: transform 0.35s ease;
-}
-.article-list article:hover .article-image img {
-    transform: scale(1.04);
-}
+.article-image { display: none !important; }
 
 // ══════════════════════════════════════════════════════════════════════
 // LEFT SIDEBAR — CENTER AVATAR + SOCIAL

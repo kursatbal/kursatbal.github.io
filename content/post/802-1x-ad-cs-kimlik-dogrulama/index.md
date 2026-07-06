@@ -4,7 +4,6 @@ description: "Kablolu ve kablosuz ağlarda EAP-TLS tabanlı sertifika kimlik do�
 date: 2026-06-24
 draft: false
 slug: 802-1x-ad-cs-kimlik-dogrulama
-image: cover.png
 categories:
     - Active Directory
 tags:
