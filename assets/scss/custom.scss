@@ -34,42 +34,39 @@ body, .sidebar, .article-content, h1, h2, h3 {
 // BACKGROUND: Dot Grid + Aurora
 // ══════════════════════════════════════════════════════════════════════
 body {
-    background-color: #f0f4ff;
-    background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(26,86,219,0.12) 0%, transparent 48%),
-        radial-gradient(ellipse at 85% 10%, rgba(124,58,237,0.09) 0%, transparent 42%),
-        radial-gradient(ellipse at 55% 88%, rgba(14,165,233,0.10) 0%, transparent 44%),
-        radial-gradient(circle at 1px 1px, rgba(26,86,219,0.12) 1px, transparent 0);
-    background-size: auto, auto, auto, 28px 28px;
-    background-attachment: fixed, fixed, fixed, scroll;
+    background-color: #eef2fb;
 }
 
 [data-scheme="dark"] body {
-    background-color: #0f172a;
-    background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(26,86,219,0.28) 0%, transparent 48%),
-        radial-gradient(ellipse at 85% 10%, rgba(124,58,237,0.22) 0%, transparent 42%),
-        radial-gradient(ellipse at 55% 88%, rgba(14,165,233,0.20) 0%, transparent 44%),
-        radial-gradient(circle at 1px 1px, rgba(96,165,250,0.09) 1px, transparent 0);
-    background-size: auto, auto, auto, 28px 28px;
-    background-attachment: fixed, fixed, fixed, scroll;
+    background-color: #080e1f;
+}
+
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
 }
 
 // ══════════════════════════════════════════════════════════════════════
 // GLASSMORPHISM SIDEBAR
 // ══════════════════════════════════════════════════════════════════════
 .left-sidebar {
-    background: rgba(255,255,255,0.60) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
+    position: relative;
+    z-index: 10;
+    background: rgba(255,255,255,0.52) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border-right: 1px solid rgba(26,86,219,0.12);
     box-shadow: 4px 0 32px rgba(26,86,219,0.07);
 }
 
 [data-scheme="dark"] .left-sidebar {
-    background: rgba(15,23,42,0.75) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
+    background: rgba(8,14,31,0.62) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border-right: 1px solid rgba(96,165,250,0.12);
     box-shadow: 4px 0 32px rgba(26,86,219,0.18);
 }
@@ -257,6 +254,12 @@ body {
 // ══════════════════════════════════════════════════════════════════════
 // DARK MODE — GLASSMORPHISM CARDS
 // ══════════════════════════════════════════════════════════════════════
+.main-container, main, .right-sidebar, .article-list, .article-page,
+.widget, .article-list article {
+    position: relative;
+    z-index: 1;
+}
+
 [data-scheme="dark"] {
     .article-page,
     .article-list article,

@@ -16,17 +16,23 @@
         if (h > 0) bar.style.width = Math.min(s / h * 100, 100) + '%';
     }
 
-    // Hero canvas — animated network topology
-    function initCanvas() {
-        var canvas = document.getElementById('hero-canvas');
-        if (!canvas) return;
+    // Full-page background canvas — nodes + radar pulses
+    function initBgCanvas() {
+        var canvas = document.createElement('canvas');
+        canvas.id = 'bg-canvas';
+        document.body.insertBefore(canvas, document.body.firstChild);
+
         var ctx = canvas.getContext('2d');
-        var nodes = [], W, H;
-        var mouse = { x: -999, y: -999 };
+        var nodes = [], pulses = [], W, H;
+        var mouse = { x: -9999, y: -9999 };
 
         function resize() {
-            W = canvas.width  = canvas.offsetWidth;
-            H = canvas.height = canvas.offsetHeight;
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+
+        function dark() {
+            return document.documentElement.getAttribute('data-scheme') === 'dark';
         }
 
         function mkNodes(n) {
@@ -35,81 +41,101 @@
                 nodes.push({
                     x:  Math.random() * W,
                     y:  Math.random() * H,
-                    vx: (Math.random() - 0.5) * 0.45,
-                    vy: (Math.random() - 0.5) * 0.45,
-                    r:  Math.random() * 1.5 + 1.2
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    r:  Math.random() * 1.4 + 1,
+                    pt: Math.floor(Math.random() * 500)
                 });
             }
         }
 
-        canvas.addEventListener('mousemove', function (e) {
-            var r = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - r.left;
-            mouse.y = e.clientY - r.top;
-        });
-        canvas.addEventListener('mouseleave', function () {
-            mouse.x = -999; mouse.y = -999;
+        document.addEventListener('mousemove', function (e) {
+            mouse.x = e.clientX; mouse.y = e.clientY;
         });
 
-        var MAX_D = 160, MOUSE_D = 130;
+        var MAX_D = 150, MOUSE_D = 120;
 
         function frame() {
             ctx.clearRect(0, 0, W, H);
+            var d = dark();
+            var nc = d ? [96,165,250] : [26,86,219];
+            var baseAlpha = d ? 1 : 0.45;
 
             nodes.forEach(function (n) {
                 n.x += n.vx; n.y += n.vy;
                 if (n.x < 0 || n.x > W) n.vx *= -1;
                 if (n.y < 0 || n.y > H) n.vy *= -1;
+                n.pt--;
+                if (n.pt <= 0) {
+                    pulses.push({ x: n.x, y: n.y, r: 0, op: 0.6,
+                                  maxR: 70 + Math.random() * 80 });
+                    n.pt = 250 + Math.floor(Math.random() * 450);
+                }
             });
 
+            // Pulses
+            pulses = pulses.filter(function (p) {
+                p.r  += 1.4;
+                p.op *= 0.965;
+                if (p.op < 0.015 || p.r > p.maxR) return false;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(' + nc + ',' + (p.op * baseAlpha * 0.55) + ')';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                return true;
+            });
+
+            // Connections
             for (var i = 0; i < nodes.length; i++) {
                 for (var j = i + 1; j < nodes.length; j++) {
                     var dx = nodes[i].x - nodes[j].x,
                         dy = nodes[i].y - nodes[j].y,
-                        d  = Math.sqrt(dx * dx + dy * dy);
-                    if (d < MAX_D) {
+                        dd = Math.sqrt(dx*dx + dy*dy);
+                    if (dd < MAX_D) {
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
                         ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = 'rgba(96,165,250,' + (0.18 * (1 - d / MAX_D)) + ')';
+                        ctx.strokeStyle = 'rgba(' + nc + ',' + (0.13 * baseAlpha * (1 - dd/MAX_D)) + ')';
                         ctx.lineWidth = 0.7;
                         ctx.stroke();
                     }
                 }
-                var mdx = nodes[i].x - mouse.x,
-                    mdy = nodes[i].y - mouse.y,
-                    md  = Math.sqrt(mdx * mdx + mdy * mdy);
+                // Mouse connection
+                var mx = nodes[i].x - mouse.x, my = nodes[i].y - mouse.y;
+                var md = Math.sqrt(mx*mx + my*my);
                 if (md < MOUSE_D) {
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = 'rgba(96,165,250,' + (0.35 * (1 - md / MOUSE_D)) + ')';
-                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = 'rgba(' + nc + ',' + (0.38 * baseAlpha * (1 - md/MOUSE_D)) + ')';
+                    ctx.lineWidth = 0.9;
                     ctx.stroke();
                 }
             }
 
+            // Nodes
             nodes.forEach(function (n) {
-                var mdx = n.x - mouse.x, mdy = n.y - mouse.y;
-                var near = Math.sqrt(mdx * mdx + mdy * mdy) < 100;
+                var mx = n.x - mouse.x, my = n.y - mouse.y;
+                var near = Math.sqrt(mx*mx + my*my) < 90;
                 ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r + (near ? 1.2 : 0), 0, Math.PI * 2);
-                ctx.fillStyle = near ? 'rgba(147,197,253,0.9)' : 'rgba(96,165,250,0.55)';
+                ctx.arc(n.x, n.y, n.r + (near ? 1.5 : 0), 0, Math.PI*2);
+                ctx.fillStyle = 'rgba(' + nc + ',' + (near ? 0.85 * baseAlpha : 0.4 * baseAlpha) + ')';
                 ctx.fill();
             });
 
             requestAnimationFrame(frame);
         }
 
-        window.addEventListener('resize', function () { resize(); mkNodes(60); });
+        window.addEventListener('resize', function () { resize(); mkNodes(58); });
         resize();
-        mkNodes(60);
+        mkNodes(58);
         frame();
     }
 
     function onReady() {
         initBar();
-        initCanvas();
+        initBgCanvas();
     }
 
     document.readyState === 'loading'
