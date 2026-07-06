@@ -1,21 +1,119 @@
 <script>
 (function () {
+    // Reading progress bar
     var bar;
-    function init() {
+    function initBar() {
         if (!document.querySelector('.article-content')) return;
         bar = document.createElement('div');
         bar.id = 'rpbar';
         document.body.insertBefore(bar, document.body.firstChild);
-        window.addEventListener('scroll', update, { passive: true });
-        update();
+        window.addEventListener('scroll', updateBar, { passive: true });
+        updateBar();
     }
-    function update() {
+    function updateBar() {
         var s = window.scrollY,
             h = document.documentElement.scrollHeight - window.innerHeight;
         if (h > 0) bar.style.width = Math.min(s / h * 100, 100) + '%';
     }
+
+    // Hero canvas — animated network topology
+    function initCanvas() {
+        var canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var nodes = [], W, H;
+        var mouse = { x: -999, y: -999 };
+
+        function resize() {
+            W = canvas.width  = canvas.offsetWidth;
+            H = canvas.height = canvas.offsetHeight;
+        }
+
+        function mkNodes(n) {
+            nodes = [];
+            for (var i = 0; i < n; i++) {
+                nodes.push({
+                    x:  Math.random() * W,
+                    y:  Math.random() * H,
+                    vx: (Math.random() - 0.5) * 0.45,
+                    vy: (Math.random() - 0.5) * 0.45,
+                    r:  Math.random() * 1.5 + 1.2
+                });
+            }
+        }
+
+        canvas.addEventListener('mousemove', function (e) {
+            var r = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - r.left;
+            mouse.y = e.clientY - r.top;
+        });
+        canvas.addEventListener('mouseleave', function () {
+            mouse.x = -999; mouse.y = -999;
+        });
+
+        var MAX_D = 160, MOUSE_D = 130;
+
+        function frame() {
+            ctx.clearRect(0, 0, W, H);
+
+            nodes.forEach(function (n) {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 0 || n.x > W) n.vx *= -1;
+                if (n.y < 0 || n.y > H) n.vy *= -1;
+            });
+
+            for (var i = 0; i < nodes.length; i++) {
+                for (var j = i + 1; j < nodes.length; j++) {
+                    var dx = nodes[i].x - nodes[j].x,
+                        dy = nodes[i].y - nodes[j].y,
+                        d  = Math.sqrt(dx * dx + dy * dy);
+                    if (d < MAX_D) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = 'rgba(96,165,250,' + (0.18 * (1 - d / MAX_D)) + ')';
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                    }
+                }
+                var mdx = nodes[i].x - mouse.x,
+                    mdy = nodes[i].y - mouse.y,
+                    md  = Math.sqrt(mdx * mdx + mdy * mdy);
+                if (md < MOUSE_D) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = 'rgba(96,165,250,' + (0.35 * (1 - md / MOUSE_D)) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+
+            nodes.forEach(function (n) {
+                var mdx = n.x - mouse.x, mdy = n.y - mouse.y;
+                var near = Math.sqrt(mdx * mdx + mdy * mdy) < 100;
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r + (near ? 1.2 : 0), 0, Math.PI * 2);
+                ctx.fillStyle = near ? 'rgba(147,197,253,0.9)' : 'rgba(96,165,250,0.55)';
+                ctx.fill();
+            });
+
+            requestAnimationFrame(frame);
+        }
+
+        window.addEventListener('resize', function () { resize(); mkNodes(60); });
+        resize();
+        mkNodes(60);
+        frame();
+    }
+
+    function onReady() {
+        initBar();
+        initCanvas();
+    }
+
     document.readyState === 'loading'
-        ? document.addEventListener('DOMContentLoaded', init)
-        : init();
+        ? document.addEventListener('DOMContentLoaded', onReady)
+        : onReady();
 })();
 </script>
