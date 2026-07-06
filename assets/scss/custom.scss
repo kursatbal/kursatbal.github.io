@@ -19,36 +19,28 @@ body, .sidebar, .article-content, h1, h2, h3 {
 }
 
 :root[data-scheme="dark"] {
-    --accent-color:              #818cf8;
-    --accent-color-darker:       #6366f1;
-    --accent-color-text:         #fff;
-    --body-background:           #04091a;
-    --card-background:           rgba(8, 15, 38, 0.60);
-    --card-background-selected:  rgba(99, 102, 241, 0.14);
+    --accent-color:              #60a5fa;
+    --accent-color-darker:       #3b82f6;
+    --accent-color-text:         #000;
+    --body-background:           #0f172a;
+    --card-background:           rgba(15, 23, 60, 0.75);
+    --card-background-selected:  rgba(26, 86, 219, 0.15);
     --card-text-color-main:      rgba(255, 255, 255, 0.92);
-    --card-text-color-secondary: rgba(255, 255, 255, 0.62);
-    --card-text-color-tertiary:  rgba(255, 255, 255, 0.42);
+    --card-text-color-secondary: rgba(255, 255, 255, 0.65);
+    --card-text-color-tertiary:  rgba(255, 255, 255, 0.45);
 }
 
 // ══════════════════════════════════════════════════════════════════════
 // BACKGROUND: Dot Grid + Aurora
 // ══════════════════════════════════════════════════════════════════════
 body {
-    background-color: #f0f4ff;
+    background-color: #eef2fb;
 }
 
 [data-scheme="dark"] body {
-    background-color: #04091a;
+    background-color: #080e1f;
 }
 
-#bg-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
-}
 
 // ══════════════════════════════════════════════════════════════════════
 // GLASSMORPHISM SIDEBAR
@@ -64,11 +56,11 @@ body {
 }
 
 [data-scheme="dark"] .left-sidebar {
-    background: rgba(4,9,26,0.55) !important;
-    backdrop-filter: blur(24px) !important;
-    -webkit-backdrop-filter: blur(24px) !important;
-    border-right: 1px solid rgba(129,140,248,0.15);
-    box-shadow: 4px 0 40px rgba(99,102,241,0.18);
+    background: rgba(8,14,31,0.62) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(96,165,250,0.12);
+    box-shadow: 4px 0 32px rgba(26,86,219,0.18);
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -265,10 +257,8 @@ body {
     .article-list article,
     .widget,
     .right-sidebar .card {
-        backdrop-filter: blur(16px) saturate(1.4);
-        -webkit-backdrop-filter: blur(16px) saturate(1.4);
-        background: rgba(8, 14, 38, 0.55) !important;
-        border: 1px solid rgba(129, 140, 248, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 }
 

@@ -16,69 +16,7 @@
         if (h > 0) bar.style.width = Math.min(s / h * 100, 100) + '%';
     }
 
-    // Aurora gradient mesh background
-    function initBgCanvas() {
-        var canvas = document.createElement('canvas');
-        canvas.id = 'bg-canvas';
-        document.body.insertBefore(canvas, document.body.firstChild);
-
-        var ctx = canvas.getContext('2d');
-        var W, H, t = 0;
-
-        // Each blob: normalized base position, radius ratio, RGB color, drift speed, phase offset
-        var blobs = [
-            { bx:0.12, by:0.22, r:0.50, cr:99,  cg:102, cb:241, s:0.00026, p:0.0  }, // indigo
-            { bx:0.78, by:0.12, r:0.55, cr:168, cg:85,  cb:247, s:0.00020, p:1.1  }, // violet
-            { bx:0.45, by:0.82, r:0.58, cr:6,   cg:182, cb:212, s:0.00032, p:2.2  }, // cyan
-            { bx:0.88, by:0.52, r:0.44, cr:59,  cg:130, cb:246, s:0.00028, p:3.3  }, // blue
-            { bx:0.22, by:0.68, r:0.46, cr:20,  cg:184, cb:166, s:0.00022, p:4.1  }, // teal
-            { bx:0.60, by:0.38, r:0.40, cr:216, cg:72,  cb:180, s:0.00018, p:5.0  }, // rose
-        ];
-
-        function isDark() {
-            return document.documentElement.getAttribute('data-scheme') !== 'light';
-        }
-
-        function resize() {
-            W = canvas.width  = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-        }
-
-        function frame() {
-            t++;
-            ctx.clearRect(0, 0, W, H);
-
-            var dark = isDark();
-            var baseAlpha = dark ? 0.30 : 0.10;
-
-            blobs.forEach(function(b) {
-                var x = (b.bx + Math.sin(t * b.s + b.p) * 0.28) * W;
-                var y = (b.by + Math.cos(t * b.s * 0.85 + b.p * 1.4) * 0.24) * H;
-                var r = b.r * Math.min(W, H);
-
-                var g = ctx.createRadialGradient(x, y, 0, x, y, r);
-                g.addColorStop(0,   'rgba('+b.cr+','+b.cg+','+b.cb+','+(baseAlpha*1.8)+')');
-                g.addColorStop(0.45,'rgba('+b.cr+','+b.cg+','+b.cb+','+baseAlpha+')');
-                g.addColorStop(1,   'rgba('+b.cr+','+b.cg+','+b.cb+',0)');
-
-                ctx.beginPath();
-                ctx.arc(x, y, r, 0, Math.PI * 2);
-                ctx.fillStyle = g;
-                ctx.fill();
-            });
-
-            requestAnimationFrame(frame);
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-        frame();
-    }
-
-    function onReady() {
-        initBar();
-        initBgCanvas();
-    }
+    function onReady() { initBar(); }
 
     document.readyState === 'loading'
         ? document.addEventListener('DOMContentLoaded', onReady)
