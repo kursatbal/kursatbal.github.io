@@ -16,32 +16,6 @@
         if (h > 0) bar.style.width = Math.min(s / h * 100, 100) + '%';
     }
 
-    // Hero overlay — dismiss on scroll or button click
-    function initHero() {
-        var landing = document.getElementById('hero-landing');
-        if (!landing) return;
-
-        function dismiss() {
-            landing.classList.add('hero-gone');
-        }
-
-        var btn = document.getElementById('hero-enter');
-        if (btn) {
-            btn.addEventListener('click', function () {
-                dismiss();
-                setTimeout(function () {
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                }, 50);
-            });
-        }
-
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 60) dismiss();
-        }, { passive: true });
-
-        document.addEventListener('keydown', dismiss, { once: true });
-    }
-
     // Hero canvas — animated network topology
     function initCanvas() {
         var canvas = document.getElementById('hero-canvas');
@@ -135,7 +109,6 @@
 
     function onReady() {
         initBar();
-        initHero();
         initCanvas();
     }
 
