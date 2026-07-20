@@ -27,7 +27,7 @@ tags:
     <div class="download-box-title">KusoADCheck — Script Paketi</div>
     <div class="download-box-desc">Aracı buradan indirebilirsiniz.</div>
   </div>
-  <a class="download-box-btn" href="KusoADCheck.zip" download>İndir (.zip · 230 KB)</a>
+  <a class="download-box-btn" href="KusoADCheck.zip" download>İndir (.zip · 1.1 MB)</a>
 </div>
 
 Active Directory, bir organizasyonun kimlik, erişim ve politika altyapısının merkezidir. AD'i ele geçiren saldırgan tüm ortamı ele geçirmiş demektir. **Kuso AD Check**, bu yüzeyi sistematik olarak **16 menü ekranı** ve **6 risk kategorisinde 96 kural** ile tarayan, özel geliştirilmiş bir denetim aracıdır.
