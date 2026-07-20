@@ -1,6 +1,6 @@
 ---
 title: "Kuso AD Check — Active Directory Güvenlik Değerlendirmesi"
-description: "Kuso AD Check'in 16 analiz ekranı ve 6 risk kategorisindeki 96 güvenlik kuralının teknik metodolojisi: Tier 0'dan Trust'lara AD güvenlik yüzeyi."
+description: "Kuso AD Check'in 21 analiz ekranı ve 6 risk kategorisindeki 96 güvenlik kuralının teknik metodolojisi: Tier 0'dan Trust'lara AD güvenlik yüzeyi."
 date: 2024-06-23
 draft: false
 slug: kuso-adcheck-metodoloji
@@ -30,7 +30,7 @@ tags:
   <a class="download-box-btn" href="KusoADCheck.zip" download>İndir (.zip · 1.1 MB)</a>
 </div>
 
-Active Directory, bir organizasyonun kimlik, erişim ve politika altyapısının merkezidir. AD'i ele geçiren saldırgan tüm ortamı ele geçirmiş demektir. **Kuso AD Check**, bu yüzeyi sistematik olarak **16 menü ekranı** ve **6 risk kategorisinde 96 kural** ile tarayan, özel geliştirilmiş bir denetim aracıdır.
+Active Directory, bir organizasyonun kimlik, erişim ve politika altyapısının merkezidir. AD'i ele geçiren saldırgan tüm ortamı ele geçirmiş demektir. **Kuso AD Check**, bu yüzeyi sistematik olarak **21 menü ekranı** ve **6 risk kategorisinde 96 kural** ile tarayan, özel geliştirilmiş bir denetim aracıdır.
 
 ---
 
@@ -118,6 +118,16 @@ AD'deki mail özniteliklerine göre posta kutusu bulunan kullanıcıların envan
 - Toplam mail kullanıcıları, On-Prem Exchange kullanıcıları, Hibrit (M365 Mailbox) kullanıcıları
 - **AD Connect hesap durumu:** Azure AD Connect servis hesapları tespit edilir ve maruziyeti değerlendirilir
 
+### Service Accounts
+
+AD'deki tüm servis hesaplarının (SPN'li kullanıcılar ve gMSA) envanteri ve güvenlik profili.
+
+- **SPN tablosu:** Hangi hesapta hangi servis bağlantı noktası tanımlı? Kerberoasting'e açık hesaplar işaretlenir
+- **gMSA listesi:** Group Managed Service Account olarak yapılandırılmış hesaplar — şifre rotasyonu otomatik, Kerberoasting'e bağışık
+- Kullanılmayan veya 90+ gündür giriş yapılmayan servis hesapları vurgulanır
+
+> Unutulmuş bir servis hesabı + eski şifre + SPN = Kerberoasting hedefi.
+
 ### Locked Accounts
 
 Anlık hesap kilitleme durumu ve brute-force göstergeleri.
@@ -153,6 +163,17 @@ Tüm GPO'ların envanteri, OU bağlantı haritası ve hijyen analizi.
 
 > GPO'lar tüm ağa yazılım dağıtabilir, betik çalıştırabilir, güvenlik ayarlarını değiştirebilir. Yanlış yazma izni tüm domain'i toplu saldırı vektörüne dönüştürür.
 
+### AD Tier List (T0 / T1 / T2)
+
+AD ortamındaki tüm hesap ve nesnelerin Microsoft Tier modeline göre sınıflandırılması.
+
+- **Tier 0:** Domain Controller'lar, FSMO rol sahipleri, kritik altyapı hesapları — doğrudan domain kontrolü sağlayan varlıklar
+- **Tier 1:** Uygulama sunucuları, yönetim sunucuları, servis hesapları — sunucu katmanı
+- **Tier 2:** İş istasyonları, standart kullanıcılar — uç nokta katmanı
+- Katman ihlalleri: Tier 0 hesabının Tier 2 sistemde oturum açması gibi tehlikeli yatay kesişimler tespit edilir
+
+> Tier sınırı ihlali = lateral movement için köprü. Tier 0 kimlik bilgisi Tier 2 makinede bellekte kalırsa full domain tehlikesi vardır.
+
 ### AD Sites & Topology
 
 Active Directory Sites and Services yapılandırmasının görsel ve tablolu özeti.
@@ -165,6 +186,36 @@ Domain Controller'ların servis sağlığı, DNS durumu, replikasyon kalitesi ve
 
 - DC listesi, DNS sağlığı (SOA kaydı, ters lookup zone), replikasyon durumu
 - **FSMO rolleri:** PDC Emulator, RID Master, Infrastructure Master, Schema Master, Domain Naming Master
+
+### AD Trusts
+
+Birden fazla domain veya forest arasındaki güven ilişkilerinin detaylı analizi.
+
+- **Trust tablosu:** Güven yönü (tek yönlü / çift yönlü), türü (forest / external / shortcut), geçişkenliği
+- **SID Filtreleme:** Her trust üzerinde SIDFilteringQuarantined aktif mi? Kapalıysa alt domain ele geçirmesi ana domain DA yetkisi verebilir
+- **TGT Delegation:** TGTDelegation açık trust'lar — unconstrained delegation ile birleşince tam ele geçirme riski
+- **Selective Authentication:** Yalnızca belirlenen kaynaklara erişim sınırlandırılmış mı?
+
+### DNS Health
+
+Active Directory'nin DNS altyapısının sağlık kontrolü.
+
+- **Forward zone tablosu:** AD entegre DNS zone'ları, delegasyonlar, dinamik güncelleme politikası
+- **Reverse lookup zone'ları:** PTR kayıtları için ters arama zone'larının varlığı ve tutarlılığı
+- **DnsAdmins grubu:** DC'de DNS DLL injection riskine yol açan grup üyeleri listelenir
+- Yetim (orphaned) DNS kayıtları ve zone replikasyon durumu
+
+> DNS zehirlenmesi veya kayıt manipülasyonu, kerberos kimlik doğrulama trafiğini yeniden yönlendirmek için kullanılabilir.
+
+### SYSVOL / NETLOGON
+
+DC'lerdeki kritik paylaşım klasörlerinin güvenlik ve tutarlılık denetimi.
+
+- **FRS / DFSR durumu:** Her DC'de SYSVOL replikasyonunun FRS'den DFSR'ye geçişi tamamlanmış mı? FRS = artık desteklenmiyor
+- **GPP cpassword dosyaları:** SYSVOL içindeki XML dosyalarında şifrelenmiş parola kalıntısı (MS14-025) — Microsoft'un yayınladığı AES anahtarıyla kırılabilir
+- **NETLOGON hassas içerik:** Oturum açma scriptlerinde açık metin kimlik bilgisi, şifre veya token içeren dosyalar taranır
+
+> SYSVOL tüm domain kullanıcılarına okunabilir. GPP cpassword → domain kullanıcısından domain admin'e tek adım.
 
 ### Hybrid / Entra Join
 
@@ -302,12 +353,17 @@ Birden fazla domain veya forest içeren ortamlarda güven ilişkileri ek saldır
 | Groups & Security | Güvenlik ve dağıtım grubu envanteri, boş/tehlikeli gruplar |
 | Inactive Objects | Atıl kullanıcı ve bilgisayar hesapları (90+ gün) |
 | Exchange / O365 Users | Posta kutusu envanteri ve hibrit yapı durumu |
+| Service Accounts | SPN'li hesaplar, gMSA listesi, atıl servis hesapları |
 | Locked Accounts | Kilitleme yoğunlaşması ve brute-force tespiti |
 | Password Expiry | Parola yaşam döngüsü takibi |
 | Password Policies | Domain ve fine-grained (PSO) parola politikaları |
 | Group Policy Check | GPO envanteri, OU bağlantı haritası, yetim/boş GPO analizi |
+| AD Tier List | T0/T1/T2 sınıflandırması, katman ihlali tespiti |
 | AD Sites & Topology | Site yapısı, DC dağılımı, subnet eşleşmesi |
 | DC Health & FSMO | DC sağlığı, DNS, replikasyon kalitesi, FSMO rolleri |
+| AD Trusts | Trust yönü/türü, SID filtreleme, TGT delegation, selective auth |
+| DNS Health | Forward/reverse zone'lar, DnsAdmins maruziyeti |
+| SYSVOL / NETLOGON | FRS/DFSR durumu, GPP cpassword kalıntıları, oturum açma scriptleri |
 | Hybrid / Entra Join | Entra ID kayıt kapsamı ve AD Connect hesap durumu |
 | Skipped / Unreachable DCs | Erişilemeyen DC'ler ve raporun kör noktaları |
 | **Risk: Privileged Infrastructure** | **55 kural** — Tier 0/1/2 + Privileged Group Review |
@@ -316,6 +372,6 @@ Birden fazla domain veya forest içeren ortamlarda güven ilişkileri ek saldır
 | **Risk: Anomalies** | **16 kural** — şifre uzunluğu, denetim, coercion, GPP, LLMNR |
 | **Risk: Hygiene** | **4 kural** — PSO, DFL/FFL, Entra join, AD Connect |
 | **Risk: Trusts** | **2 kural** — SID filtering, SIDHistory |
-| **TOPLAM** | **16 ekran + 96 güvenlik kuralı** |
+| **TOPLAM** | **21 ekran + 96 güvenlik kuralı** |
 
-Kuso AD Check, 16 ekran ve 96 kural ile saldırganın kullanabileceği her yüzeyi önceden görünür kılar. Periyodik tarama, AD'in canlı ortamda nasıl değiştiğini izlemek ve güvenlik borcunun birikmesini önlemek için kritiktir.
+Kuso AD Check, 21 ekran ve 96 kural ile saldırganın kullanabileceği her yüzeyi önceden görünür kılar. Periyodik tarama, AD'in canlı ortamda nasıl değiştiğini izlemek ve güvenlik borcunun birikmesini önlemek için kritiktir.
