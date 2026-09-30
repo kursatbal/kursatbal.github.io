@@ -2,7 +2,7 @@
 title: Hakkımda
 description: Harun Kürşat Bal — System Engineer
 date: 2025-01-01
-lastmod: 2026-06-24
+lastmod: 2026-09-30
 layout: about
 toc: false
 menu:
@@ -39,6 +39,15 @@ menu:
 <img src="https://img.shields.io/badge/Cisco_IronPort-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" />
 <img src="https://img.shields.io/badge/Dell-007DB8?style=for-the-badge&logo=dell&logoColor=white" />
 </div>
+
+</details>
+
+<details open>
+<summary>🧰 Geliştirdiğim Araçlar</summary>
+
+- **[KusoADCheck](https://github.com/kursatbal/kuso-adcheck)**: Active Directory güvenlik ve sağlık değerlendirme aracı. Tek dosyalık PowerShell betiği, 21 ekran ve 96 kural, HTML rapor. [Yazı](/p/kuso-adcheck-metodoloji/)
+- **[RackView](https://github.com/kursatbal/rackview)**: Veri merkezi rack yerleşimi ve kablolama görselleştirme aracı.
+- **[PrivScope](https://github.com/kursatbal/privscope)**: Sunucularda kimin yönetici olduğunu gösteren envanter aracı. Active Directory, Windows ve Linux için tek HTML rapor. [Yazı](/p/privscope-yetkili-hesap-envanteri/)
 
 </details>
 
