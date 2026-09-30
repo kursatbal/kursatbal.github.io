@@ -8,3 +8,12 @@
         icon = "categories"
 
 
+
+[[main]]
+    identifier = "posts"
+    name       = "Yazılar"
+    url        = "/categories/yazılar/"
+    weight     = -85
+
+    [main.params]
+        icon = "messages"
