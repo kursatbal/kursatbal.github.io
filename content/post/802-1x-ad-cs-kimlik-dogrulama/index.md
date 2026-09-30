@@ -5,7 +5,7 @@ date: 2026-06-24
 draft: false
 slug: 802-1x-ad-cs-kimlik-dogrulama
 categories:
-    - Active Directory
+    - Yazılar
 tags:
     - Active Directory
     - 802.1X
