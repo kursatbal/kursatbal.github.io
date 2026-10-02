@@ -1,0 +1,6 @@
+{{- $result := slice -}}
+{{- range where site.RegularPages "Section" "post" -}}
+  {{- $data := dict "title" .Title "url" .RelPermalink "date" (.Date.Format "2006-01-02") "description" (.Params.description | default "") "category" (cond (gt (len .Params.categories) 0) (index .Params.categories 0) "") "tags" (.Params.tags | default slice) "content" (.Plain | truncate 4000) -}}
+  {{- $result = $result | append $data -}}
+{{- end -}}
+{{- $result | jsonify -}}

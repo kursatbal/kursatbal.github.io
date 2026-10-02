@@ -1,0 +1,39 @@
+{{ define "body-class" }}is-article{{ end }}
+{{ define "main" }}
+<article class="article">
+  <header class="article-header">
+    <div class="label">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Yazı{{ end }}</div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="article-lead">{{ . }}</p>{{ end }}
+    <div class="article-meta">
+      <span>{{ partial "date.html" .Date }}</span>
+      <span aria-hidden="true">·</span>
+      <span>{{ .ReadingTime }} dk okuma</span>
+    </div>
+  </header>
+
+  <div class="article-grid">
+    <div class="article-main">
+      <div class="prose">{{ .Content }}</div>
+
+      {{ with .Params.tags }}
+      <div class="tags article-tags">{{ range . }}<a class="tag" href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}</div>
+      {{ end }}
+
+      {{ if eq .Section "post" }}
+      <nav class="pager" aria-label="Yazılar arasında gezin">
+        {{ with .NextInSection }}<a class="pager-item" href="{{ .RelPermalink }}"><span class="label">← Daha eski</span><span>{{ .Title }}</span></a>{{ else }}<span></span>{{ end }}
+        {{ with .PrevInSection }}<a class="pager-item pager-next" href="{{ .RelPermalink }}"><span class="label">Daha yeni →</span><span>{{ .Title }}</span></a>{{ end }}
+      </nav>
+      {{ end }}
+    </div>
+
+    {{ if gt (len .TableOfContents) 60 }}
+    <aside class="toc" aria-label="İçindekiler">
+      <div class="label">Bu yazıda</div>
+      {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

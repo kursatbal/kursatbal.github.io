@@ -1,14 +1,81 @@
-{{ define "body-class" }}
-    article-page
-{{ end }}
-
 {{ define "main" }}
-    {{ partial "article/article.html" . }}
-    {{ partialCached "footer/footer" . }}
-{{ end }}
+{{ $d := hugo.Data.site }}
+{{ $avatar := resources.Get "img/avatar.png" }}
+<header class="about-head">
+  <div>
+    <div class="label">Hakkımda</div>
+    <h1 class="page-title">{{ $d.name }}</h1>
+    <p class="hero-title">{{ $d.title }}</p>
+    <div class="hero-links">
+      <a class="btn" href="{{ $d.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="{{ $d.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="mailto:{{ $d.email }}">E-posta</a>
+    </div>
+  </div>
+  {{ with $avatar }}{{ $a := .Resize "400x" }}<div class="about-photo"><img src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}"></div>{{ end }}
+</header>
 
-{{ define "right-sidebar" }}
-    <aside class="sidebar right-sidebar sticky">
-        {{ partial "widget/certifications" (dict "Context" . "Params" dict) }}
-    </aside>
+{{ with .Content }}<div class="prose about-prose">{{ . }}</div>{{ end }}
+
+<section class="section">
+  <div class="section-head"><h2>Deneyim</h2></div>
+  <div class="timeline">
+    {{ range hugo.Data.experience }}
+    <article class="job">
+      <div class="job-period label">{{ .period }}</div>
+      <div class="job-body">
+        <h3 class="job-role">{{ .role }}</h3>
+        <div class="job-company">{{ .company }} · {{ .place }}</div>
+        {{ with .items }}<ul class="job-items">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Teknoloji</h2></div>
+  <div class="stack">
+    {{ range hugo.Data.stack }}
+    <div class="stack-group">
+      <div class="label">{{ .group }}</div>
+      <div class="tags">{{ range .items }}<span class="tag tag-lg">{{ . }}</span>{{ end }}</div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Geliştirdiğim araçlar</h2></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Sertifikalar</h2></div>
+  <div class="grid grid-2 certs">
+    {{ range hugo.Data.certifications }}
+    <div class="cert">
+      <img class="cert-logo" src="{{ strings.TrimPrefix "/" .logo | relURL }}" alt="{{ .vendor }}" width="40" height="40" loading="lazy">
+      <div>
+        <div class="label">{{ .vendor }}</div>
+        <div class="cert-title">{{ .title }}</div>
+        <div class="cert-meta">{{ .meta }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Eğitim</h2></div>
+  <div class="job">
+    <div class="job-period label">2024</div>
+    <div class="job-body">
+      <h3 class="job-role">Bilgisayar Mühendisliği</h3>
+      <div class="job-company">Haliç Üniversitesi</div>
+    </div>
+  </div>
+</section>
 {{ end }}

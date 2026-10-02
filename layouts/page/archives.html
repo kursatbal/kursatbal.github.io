@@ -1,0 +1,20 @@
+{{ define "main" }}
+<header class="page-head">
+  <div class="label">Arşiv</div>
+  <h1 class="page-title">Tüm yazılar</h1>
+</header>
+{{ range (where site.RegularPages "Section" "post").GroupByDate "2006" }}
+<section class="archive-year">
+  <h2 class="archive-year-title">{{ .Key }}</h2>
+  <div class="archive-list">
+    {{ range .Pages }}
+    <a class="archive-item" href="{{ .RelPermalink }}">
+      <span class="archive-date">{{ partial "date.html" .Date }}</span>
+      <span class="archive-title">{{ .Title }}</span>
+      <span class="label">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

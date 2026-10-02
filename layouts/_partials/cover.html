@@ -1,0 +1,9 @@
+{{- /* Sayfa paketindeki kapak görselini küçültülmüş <img> olarak yazar. Girdi: sayfa */ -}}
+{{- with .Params.image -}}
+  {{- with $.Resources.Get . -}}
+    {{- if and (reflect.IsImageResourceWithMeta .) (not (strings.HasSuffix (lower .RelPermalink) ".svg")) -}}
+      {{- $s := .Resize "720x" -}}
+      <img src="{{ $s.RelPermalink }}" width="{{ $s.Width }}" height="{{ $s.Height }}" alt="" loading="lazy" decoding="async">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

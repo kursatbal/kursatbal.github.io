@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header class="page-head">
+  <div class="label">Liste</div>
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="page-lead">{{ . }}</p>{{ end }}
+</header>
+{{ $pager := .Paginate (where .Pages "Params.hidden" "ne" true) }}
+<div class="rows">
+  {{ range $pager.Pages }}{{ partial "post-row.html" . }}{{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

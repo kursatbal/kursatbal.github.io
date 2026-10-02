@@ -1,0 +1,9 @@
+{{ with .Paginator }}
+{{ if gt .TotalPages 1 }}
+<nav class="pagination" aria-label="Sayfalar">
+  {{ if .HasPrev }}<a href="{{ .Prev.URL }}">← Önceki</a>{{ else }}<span></span>{{ end }}
+  <span class="pagination-count">{{ .PageNumber }} / {{ .TotalPages }}</span>
+  {{ if .HasNext }}<a href="{{ .Next.URL }}">Sonraki →</a>{{ else }}<span></span>{{ end }}
+</nav>
+{{ end }}
+{{ end }}

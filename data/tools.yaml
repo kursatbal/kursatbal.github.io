@@ -1,0 +1,18 @@
+- name: "KusoADCheck"
+  page: "post/kuso-adcheck-metodoloji"
+  summary: "Active Directory güvenlik ve sağlık değerlendirme aracı."
+  description: "Active Directory güvenlik ve sağlık değerlendirme aracı. Tek dosyalık PowerShell betiği, 21 ekran ve 96 kural, HTML rapor."
+  tags: ["PowerShell", "Active Directory"]
+  github: "https://github.com/kursatbal/kuso-adcheck"
+- name: "PrivScope"
+  page: "post/privscope-yetkili-hesap-envanteri"
+  summary: "Sunucularda kimin yönetici olduğunu gösteren envanter aracı."
+  description: "Sunucularda kimin yönetici olduğunu gösteren envanter aracı. Active Directory, Windows ve Linux için tek HTML rapor."
+  tags: ["Python", "Windows", "Linux"]
+  github: "https://github.com/kursatbal/privscope"
+- name: "RackView"
+  page: "post/rackview-rack-kablolama-gorsellestirme"
+  summary: "Rack yerleşimi ve kablolama görselleştirme aracı."
+  description: "Veri merkezi rack yerleşimi ve kablolama görselleştirme aracı."
+  tags: ["Python", "Flask"]
+  github: "https://github.com/kursatbal/rackview"

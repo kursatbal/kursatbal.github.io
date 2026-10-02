@@ -1,0 +1,11 @@
+{{ define "body-class" }}is-search{{ end }}
+{{ define "main" }}
+<header class="page-head">
+  <div class="label">Ara</div>
+  <h1 class="page-title">Yazılarda ara</h1>
+</header>
+<input id="search-input" class="search-input" type="search" placeholder="Başlık, konu ya da etiket yazın…" autocomplete="off" autofocus>
+<p id="search-status" class="search-status" aria-live="polite"></p>
+<div id="search-results" class="rows"></div>
+<script>window.SEARCH_INDEX = "{{ (.OutputFormats.Get "json").RelPermalink }}";</script>
+{{ end }}

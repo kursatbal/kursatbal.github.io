@@ -1,22 +1,38 @@
 {{ define "main" }}
-    {{- $paginator := partial "helper/paginator.html" . -}}
-
-    {{ if .Content }}
-    <div class="home-content">
-        {{ .Content }}
+{{ $d := hugo.Data.site }}
+{{ $avatar := resources.Get "img/avatar.png" }}
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="hero-name">{{ $d.name }}</h1>
+    <p class="hero-title">{{ $d.title }}</p>
+    <div class="hero-links">
+      <a class="btn" href="{{ $d.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="{{ $d.github }}" target="_blank" rel="noopener">GitHub</a>
     </div>
-    {{ end }}
+  </div>
+  {{ with $avatar }}
+  {{ $a := .Resize "400x" }}
+  <div class="hero-photo"><img src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}"></div>
+  {{ end }}
+</section>
 
-    <section class="article-list">
-        {{ range $index, $element := $paginator.Pages }}
-            {{ partial "article-list/default" . }}
-        {{ end }}
-    </section>
+<section class="section">
+  <div class="section-head">
+    <h2>Geliştirdiğim araçlar</h2>
+    <a class="more" href="{{ $d.github }}" target="_blank" rel="noopener">GitHub'da tümü →</a>
+  </div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+</section>
 
-    {{- partial "pagination.html" . -}}
-    {{- partial "footer/footer" . -}}
-{{ end }}
-
-{{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+<section class="section">
+  <div class="section-head">
+    <h2>Son yazılar</h2>
+    <a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a>
+  </div>
+  <div class="grid grid-3">
+    {{ range first 6 (where site.RegularPages "Section" "post").ByDate.Reverse }}{{ partial "post-card.html" . }}{{ end }}
+  </div>
+</section>
 {{ end }}

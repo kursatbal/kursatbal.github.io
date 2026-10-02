@@ -5,7 +5,7 @@
     weight     = -80
 
     [main.params]
-        icon = "categories"
+        icon = "projects"
 
 
 
@@ -13,7 +13,7 @@
     identifier = "posts"
     name       = "Yazılar"
     url        = "/categories/yazılar/"
-    weight     = -85
+    weight     = -90
 
     [main.params]
         icon = "messages"

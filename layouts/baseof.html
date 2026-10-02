@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body class="{{ block "body-class" . }}{{ end }}">
+<div id="rpbar" aria-hidden="true"></div>
+{{ partial "header.html" . }}
+<main class="wrap">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+{{ $js := resources.Get "js/site.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{{- $tool := . -}}
+{{- $pg := site.GetPage $tool.page -}}
+<article class="card tool-card">
+  {{ with $pg }}
+  <a class="card-cover" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">{{ partial "cover.html" . }}</a>
+  {{ end }}
+  <div class="card-body">
+    <h3 class="card-title">{{ with $pg }}<a href="{{ .RelPermalink }}">{{ $tool.name }}</a>{{ else }}{{ $tool.name }}{{ end }}</h3>
+    <p class="card-text">{{ $tool.summary }}</p>
+    <div class="tags">{{ range $tool.tags }}<span class="tag">{{ . }}</span>{{ end }}</div>
+    <div class="card-links">
+      {{ with $pg }}<a href="{{ .RelPermalink }}">Yazıyı oku</a>{{ end }}
+      <a href="{{ $tool.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</article>

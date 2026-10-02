@@ -1,0 +1,2 @@
+{{- $m := slice "Oca" "Şub" "Mar" "Nis" "May" "Haz" "Tem" "Ağu" "Eyl" "Eki" "Kas" "Ara" -}}
+{{- printf "%d %s %d" .Day (index $m (sub (int .Month) 1)) .Year -}}

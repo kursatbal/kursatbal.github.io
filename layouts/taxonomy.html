@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ if eq .Data.Plural "categories" }}
+<header class="page-head">
+  <div class="label">Portfolyo</div>
+  <h1 class="page-title">Projeler</h1>
+  <p class="page-lead">Geliştirdiğim araçlar ve konulara göre ayrılmış teknik yazılarım.</p>
+</header>
+
+<section class="section section-tight">
+  <div class="section-head"><h2>Araçlar</h2></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Konulara göre yazılar</h2></div>
+  <div class="grid grid-3">
+    {{ range (where .Pages "Params.hidden" "ne" true) }}
+    <a class="card topic-card" href="{{ .RelPermalink }}">
+      <div class="card-body">
+        <div class="label">{{ len .Pages }} yazı</div>
+        <h3 class="card-title">{{ .Title }}</h3>
+        <div class="topic-list">
+          {{ range first 3 .Pages.ByDate.Reverse }}<span>{{ .Title }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ else }}
+<header class="page-head">
+  <div class="label">Etiketler</div>
+  <h1 class="page-title">{{ .Title }}</h1>
+</header>
+<div class="tags tags-cloud">
+  {{ range .Pages.ByTitle }}<a class="tag" href="{{ .RelPermalink }}">{{ .Title }} <span>{{ len .Pages }}</span></a>{{ end }}
+</div>
+{{ end }}
+{{ end }}

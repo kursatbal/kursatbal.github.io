@@ -1,0 +1,8 @@
+<a class="card post-card" href="{{ .RelPermalink }}">
+  <div class="card-cover">{{ partial "cover.html" . }}</div>
+  <div class="card-body">
+    <div class="label">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Yazı{{ end }}</div>
+    <h3 class="card-title">{{ .Title }}</h3>
+    <div class="card-meta">{{ partial "date.html" .Date }}</div>
+  </div>
+</a>

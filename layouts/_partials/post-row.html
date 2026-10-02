@@ -1,0 +1,8 @@
+<a class="post-row" href="{{ .RelPermalink }}">
+  <div class="post-row-cover">{{ partial "cover.html" . }}</div>
+  <div class="post-row-body">
+    <div class="label">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Yazı{{ end }} · {{ partial "date.html" .Date }}</div>
+    <h3 class="post-row-title">{{ .Title }}</h3>
+    {{ with .Params.description }}<p class="post-row-desc">{{ . }}</p>{{ end }}
+  </div>
+</a>

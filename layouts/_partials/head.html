@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := site.Title -}}
+{{- if .IsHome -}}
+  {{- $title = printf "%s — %s" hugo.Data.site.name hugo.Data.site.title -}}
+{{- else -}}
+  {{- $title = printf "%s — %s" .Title site.Title -}}
+{{- end }}
+<title>{{ $title }}</title>
+{{- $desc := "" -}}
+{{- if .IsHome -}}
+  {{- $desc = printf "%s — %s. Geliştirdiği araçlar ve teknik yazılar." hugo.Data.site.name hugo.Data.site.title -}}
+{{- else if .Params.description -}}
+  {{- $desc = .Params.description -}}
+{{- else if .Summary -}}
+  {{- $desc = .Summary | plainify | truncate 160 -}}
+{{- else -}}
+  {{- $desc = printf "%s — %s" hugo.Data.site.name hugo.Data.site.title -}}
+{{- end }}
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{ end -}}
+<meta name="color-scheme" content="light dark">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+{{ partial "opengraph.html" (dict "Page" . "Title" $title "Description" $desc) }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+{{ $css := slice (resources.Get "css/site.css") (resources.Get "css/chroma.css") | resources.Concat "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

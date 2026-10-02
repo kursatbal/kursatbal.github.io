@@ -1,0 +1,6 @@
+- group: "Kimlik ve mesajlaşma"
+  items: ["Active Directory", "Entra ID", "Microsoft 365", "Exchange", "Cisco IronPort"]
+- group: "Sunucu ve sanallaştırma"
+  items: ["Windows Server", "Linux", "VMware vSphere", "Hyper-V", "Nutanix", "Sangfor", "Citrix", "Dell"]
+- group: "Bulut, yedekleme ve otomasyon"
+  items: ["Microsoft Azure", "Veeam", "PowerShell"]

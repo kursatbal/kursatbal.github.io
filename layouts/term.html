@@ -1,0 +1,11 @@
+{{ define "main" }}
+<header class="page-head">
+  <div class="label">{{ if eq .Data.Plural "tags" }}Etiket{{ else }}Kategori{{ end }} · {{ len .Pages }} yazı</div>
+  <h1 class="page-title">{{ .Title }}</h1>
+</header>
+{{ $pager := .Paginate .Pages }}
+<div class="rows">
+  {{ range $pager.Pages }}{{ partial "post-row.html" . }}{{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

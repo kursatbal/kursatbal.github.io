@@ -1,0 +1,34 @@
+{{- $p := .Page -}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description }}">
+<meta property="og:url" content="{{ $p.Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if $p.IsPage }}article{{ else }}website{{ end }}">
+{{- if $p.IsPage }}
+  {{- range $p.Params.tags }}
+<meta property="article:tag" content="{{ . }}">
+  {{- end }}
+  {{- if not $p.Date.IsZero }}
+<meta property="article:published_time" content="{{ $p.Date.Format "2006-01-02T15:04:05-07:00" }}">
+  {{- end }}
+{{- end }}
+{{- /* Kapak: front matter'daki image, sayfa paketinden bulunur; SVG ya da yoksa varsayılan görsel */ -}}
+{{- $img := "" -}}
+{{- $w := 1200 -}}
+{{- $h := 630 -}}
+{{- with $p.Params.image -}}
+  {{- with $p.Resources.Get . -}}
+    {{- if and (reflect.IsImageResourceWithMeta .) (not (strings.HasSuffix (lower .RelPermalink) ".svg")) -}}
+      {{- $img = .Permalink -}}
+      {{- $w = .Width -}}
+      {{- $h = .Height -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- $img = absURL "img/og-default.png" -}}
+{{- end }}
+<meta property="og:image" content="{{ $img }}">
+<meta property="og:image:width" content="{{ $w }}">
+<meta property="og:image:height" content="{{ $h }}">
+<meta name="twitter:card" content="summary_large_image">
