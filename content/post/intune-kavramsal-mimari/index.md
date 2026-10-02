@@ -13,6 +13,7 @@ tags:
     - LAPS
     - SSO
     - App Management
+image: cover.png
 ---
 
 Intune'u doğru kullanabilmek için yalnızca menüleri bilmek yetmez; arkasındaki kimlik modeli, lisanslama mantığı ve platform mimarisinin anlaşılması gerekir. Bu yazı teknik kavramsal çerçeveyi netleştirmeyi amaçlar.

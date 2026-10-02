@@ -12,6 +12,7 @@ tags:
     - Backup
     - Replication
     - DR
+image: cover.png
 ---
 
 Veeam Backup & Replication 12.x baz alınarak hazırlanmış bu rehber; VMware vSphere ortamında yedekleme altyapısının tasarımından işletimine kadar tüm adımları kapsamaktadır.

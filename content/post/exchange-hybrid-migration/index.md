@@ -11,6 +11,7 @@ tags:
     - Active Directory
     - Entra Connect
     - Migration
+image: cover.png
 ---
 
 Kurumsal altyapınızı buluta taşımak, günümüz iş dünyasının vazgeçilmez bir parçası haline geldi. Bu makale, şirket içi Exchange yapınızı Exchange Online (Microsoft 365) ile nasıl harmanlayacağınızı adım adım anlatmaktadır.

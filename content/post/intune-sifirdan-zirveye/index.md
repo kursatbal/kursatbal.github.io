@@ -10,6 +10,7 @@ tags:
   - Microsoft 365
   - Entra ID
 toc: false
+image: cover.png
 ---
 
 Microsoft Intune'u sıfırdan kurarak modern cihaz yönetimini uçtan uca ele alan bu videoda lisanslama, kayıt, konfigürasyon profilleri, uygulama dağıtımı ve doğrulama adımlarını kapsayan tam bir kurulum süreci anlatılmaktadır.

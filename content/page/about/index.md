@@ -45,9 +45,11 @@ menu:
 <details open>
 <summary>🧰 Geliştirdiğim Araçlar</summary>
 
-- **[KusoADCheck](https://github.com/kursatbal/kuso-adcheck)**: Active Directory güvenlik ve sağlık değerlendirme aracı. Tek dosyalık PowerShell betiği, 21 ekran ve 96 kural, HTML rapor. [Yazı](/p/kuso-adcheck-metodoloji/)
-- **[RackView](https://github.com/kursatbal/rackview)**: Veri merkezi rack yerleşimi ve kablolama görselleştirme aracı.
-- **[PrivScope](https://github.com/kursatbal/privscope)**: Sunucularda kimin yönetici olduğunu gösteren envanter aracı. Active Directory, Windows ve Linux için tek HTML rapor. [Yazı](/p/privscope-yetkili-hesap-envanteri/)
+<div class="home-tools">
+<div class="home-tool"><div class="home-tool-name">KusoADCheck</div><span>Active Directory güvenlik ve sağlık değerlendirme aracı. Tek dosyalık PowerShell betiği, 21 ekran ve 96 kural, HTML rapor.</span><div class="home-tool-tags"><i>PowerShell</i><i>Active Directory</i></div><div class="home-tool-links"><a href="/p/kuso-adcheck-metodoloji/">Yazı</a><a href="https://github.com/kursatbal/kuso-adcheck" target="_blank" rel="noopener">GitHub</a></div></div>
+<div class="home-tool"><div class="home-tool-name">PrivScope</div><span>Sunucularda kimin yönetici olduğunu gösteren envanter aracı. Active Directory, Windows ve Linux için tek HTML rapor.</span><div class="home-tool-tags"><i>Python</i><i>Windows</i><i>Linux</i></div><div class="home-tool-links"><a href="/p/privscope-yetkili-hesap-envanteri/">Yazı</a><a href="https://github.com/kursatbal/privscope" target="_blank" rel="noopener">GitHub</a></div></div>
+<div class="home-tool"><div class="home-tool-name">RackView</div><span>Veri merkezi rack yerleşimi ve kablolama görselleştirme aracı.</span><div class="home-tool-tags"><i>Python</i><i>Flask</i></div><div class="home-tool-links"><a href="https://github.com/kursatbal/rackview" target="_blank" rel="noopener">GitHub</a></div></div>
+</div>
 
 </details>
 

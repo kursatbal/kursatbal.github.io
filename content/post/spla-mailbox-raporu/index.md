@@ -11,6 +11,7 @@ tags:
     - PowerShell
     - Task Scheduler
     - Reporting
+image: cover.png
 ---
 
 Exchange şirket içi (on-prem) altyapısında aylık posta kutusu sayısını otomatik raporlamak, SPLA lisanslama takibi için kritik bir süreçtir. Bu döküman, script'in çalışabilmesi için gereken ön hazırlıklardan Task Scheduler otomasyonuna kadar tüm adımları kapsar.

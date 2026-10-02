@@ -11,6 +11,7 @@ tags:
     - Active Directory
     - Security
     - GPO
+image: cover.png
 ---
 
 Bu kılavuz, Microsoft Exchange Server ortamınızda Kerberos kimlik doğrulamasına geçiş için gerekli adımları detaylandırmaktadır.

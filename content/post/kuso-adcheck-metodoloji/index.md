@@ -15,6 +15,7 @@ tags:
     - Kuso AD Check
     - MITRE ATT&CK
     - Penetration Testing
+image: cover.png
 ---
 
 <video controls preload="metadata" style="width:100%;border-radius:10px;margin:0 0 24px 0;">

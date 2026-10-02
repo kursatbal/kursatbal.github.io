@@ -15,6 +15,7 @@ tags:
     - Network Security
     - PowerShell
     - GPO
+image: cover.png
 ---
 
 <div class="download-box">

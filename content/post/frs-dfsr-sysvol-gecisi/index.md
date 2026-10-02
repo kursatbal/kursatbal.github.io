@@ -13,6 +13,7 @@ tags:
     - dfsrmig
     - Domain Controller
     - Windows Server 2022
+image: cover.png
 ---
 
 ## Giriş

@@ -13,6 +13,7 @@ tags:
     - Device Management
     - Configuration Profile
     - Windows 11
+image: cover.png
 ---
 
 Bu rehber Microsoft Intune'un kurumsal ortamlarda sıfırdan yapılandırılmasını, cihaz kaydını, politika dağıtımını ve uygulama yönetimini adım adım ele almaktadır.

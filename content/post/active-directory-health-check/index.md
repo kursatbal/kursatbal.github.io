@@ -9,7 +9,7 @@ tags:
     - PowerShell
     - Health Check
     - AD DS
-image: cover.jpg
+image: cover.png
 ---
 
 ## Neden Periyodik Sağlık Kontrolü?

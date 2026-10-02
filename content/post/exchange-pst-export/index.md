@@ -10,6 +10,7 @@ tags:
     - PST
     - PowerShell
     - Mailbox
+image: cover.png
 ---
 
 Exchange On-Premises ortamında posta kutularını PST dosyalarına aktarmanın farklı yöntemlerini adım adım ele alıyoruz.

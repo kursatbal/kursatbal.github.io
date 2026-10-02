@@ -13,6 +13,7 @@ tags:
     - Entra Connect
     - MDM
     - GPO
+image: cover.png
 ---
 
 Kurumsal ortamlarda yerleşik Active Directory altyapısını sürdürürken Intune yönetimine geçiş, dikkatli planlama gerektiren çok adımlı bir süreçtir. Bu rehber, kimlik senkronizasyonundan cihaz kaydına ve yetki devirlerine kadar tüm bileşenleri kapsar.

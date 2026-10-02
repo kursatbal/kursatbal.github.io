@@ -14,6 +14,7 @@ tags:
     - BitLocker
     - Autopilot
     - Compliance
+image: cover.png
 ---
 
 Microsoft Intune, uç nokta yönetimi ve güvenliğini tek platformda birleştiren bulut tabanlı bir MDM/MAM çözümüdür. Bu rehber, kurumsal ortamda Intune üzerinden güvenliğin katmanlı olarak nasıl yapılandırılacağını ele alır.
