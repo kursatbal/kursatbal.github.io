@@ -1,0 +1,21 @@
+{{- /* Dekoratif sunucu rack'i: LED'ler fx.js ile yanıp söner, hareket azaltmada sabit kalır */ -}}
+{{- $pattern := slice "u" "u" "s" "u" "u" "u" "s" "u" "u" "s" "u" "u" -}}
+{{- $leds := slice "on" "" "on" "on" "" "am" "on" "" "on" "" "on" "on" "" "on" "on" "am" "" "on" "on" "" "on" "" "on" "on" -}}
+<div class="rack-stage" aria-hidden="true">
+  <div class="rack" id="rack">
+    <div class="rack-face rack-front">
+      {{- range $i, $k := $pattern }}
+      {{- $a := index $leds (mod (mul $i 2) 24) }}{{ $b := index $leds (mod (add (mul $i 2) 1) 24) }}
+      {{- if eq $k "s" }}
+      <div class="unit unit-sm"><span class="led {{ $a }}"></span><span class="vent"></span><span class="ports"><i></i><i></i><i></i><i></i></span><span class="led {{ $b }}"></span></div>
+      {{- else }}
+      <div class="unit"><span class="led {{ $a }}"></span><span class="led {{ $b }}"></span><div class="bays"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ports"><i></i><i></i></span></div>
+      {{- end }}
+      {{- end }}
+    </div>
+    <div class="rack-face rack-side"></div>
+    <div class="rack-face rack-top"></div>
+    <div class="rack-floor"></div>
+    <svg class="rack-cables" viewBox="0 0 120 340"><path d="M115 40 C20 40 20 120 115 150"/><path d="M115 190 C10 200 10 280 115 300"/><path d="M115 70 C60 80 60 110 115 120"/></svg>
+  </div>
+</div>

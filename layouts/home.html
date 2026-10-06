@@ -1,8 +1,11 @@
 {{ define "main" }}
 {{ $d := hugo.Data.site }}
 {{ $avatar := resources.Get "img/avatar.png" }}
+<div class="aurora" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+
 <section class="hero">
   <div class="hero-text">
+    {{ with $avatar }}{{ $a := .Resize "200x" }}<img class="hero-avatar" src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}">{{ end }}
     <h1 class="hero-name">{{ $d.name }}</h1>
     <p class="hero-title">{{ $d.title }}</p>
     <div class="hero-links">
@@ -10,29 +13,50 @@
       <a class="btn btn-ghost" href="{{ $d.github }}" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
-  {{ with $avatar }}
-  {{ $a := .Resize "400x" }}
-  <div class="hero-photo"><img src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}"></div>
-  {{ end }}
+  {{ partial "rack.html" . }}
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {{ range seq 2 }}
+    <div class="marquee-group">
+      {{ range hugo.Data.stack }}{{ range .items }}<span>{{ . }}</span>{{ end }}{{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<section class="section term-section">
+  <div class="term-copy reveal">
+    <div class="label">Terminalde</div>
+    <h2>Komut satırında geçen bir gün</h2>
+    <p>Active Directory sağlığı, replikasyon, kendi yazdığım araçlar. Aşağıdaki çıktılar örnek bir ortamdan (<code>contoso.local</code>), gerçek bir müşteriye ait değil.</p>
+  </div>
+  <div class="reveal">
+    <div class="term" id="term" aria-hidden="true">
+      <div class="term-bar"><i></i><i></i><i></i><span>PowerShell — kursatbal</span></div>
+      <div class="term-screen" id="term-screen"></div>
+    </div>
+  </div>
 </section>
 
 <section class="section">
-  <div class="section-head">
+  <div class="section-head reveal">
     <h2>Geliştirdiğim araçlar</h2>
     <a class="more" href="{{ $d.github }}" target="_blank" rel="noopener">GitHub'da tümü →</a>
   </div>
   <div class="grid grid-3">
-    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
+    {{ range hugo.Data.tools }}<div class="reveal">{{ partial "tool-card.html" . }}</div>{{ end }}
   </div>
 </section>
 
 <section class="section">
-  <div class="section-head">
+  <div class="section-head reveal">
     <h2>Son yazılar</h2>
     <a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a>
   </div>
   <div class="grid grid-3">
-    {{ range first 6 (where site.RegularPages "Section" "post").ByDate.Reverse }}{{ partial "post-card.html" . }}{{ end }}
+    {{ range first 6 (where site.RegularPages "Section" "post").ByDate.Reverse }}<div class="reveal">{{ partial "post-card.html" . }}</div>{{ end }}
   </div>
 </section>
 {{ end }}

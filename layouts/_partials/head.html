@@ -24,6 +24,7 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
 {{ end -}}
 <meta name="color-scheme" content="light dark">
+{{ if .IsHome }}<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('fx');setTimeout(function(){if(!window.__fxReady)document.documentElement.classList.remove('fx')},4500)}</script>{{ end }}
 <script>
 (function () {
   try {
