@@ -397,7 +397,7 @@ main.wrap { position: relative; z-index: 2; }
 @keyframes aur4 { to { transform: translate(-8vw, -6vw) scale(1.25); } }
 
 /* ---------- Hero: avatar + 3B sunucu rack'i ---------- */
-.hero-avatar { display: block; width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: center 35%; border: 1px solid var(--edge); margin-bottom: 24px; }
+.hero-avatar { display: block; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center 35%; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--edge), 0 18px 40px -18px rgba(15, 60, 56, .45); margin-bottom: 28px; }
 .rack-stage { perspective: 1400px; display: grid; place-items: center; height: 560px; justify-self: center; }
 .rack { position: relative; width: 250px; height: 440px; transform-style: preserve-3d; transform: rotateX(-10deg) rotateY(-28deg); }
 .rack-face { position: absolute; backface-visibility: hidden; }
@@ -444,7 +444,7 @@ main.wrap { position: relative; z-index: 2; }
 }
 @media (max-width: 720px) {
   .rack-stage { height: 420px; transform: scale(.7); margin-top: -50px; margin-bottom: -40px; }
-  .hero-avatar { width: 72px; height: 72px; }
+  .hero-avatar { width: 112px; height: 112px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .aurora .blob, .rack-cables path { animation: none; }

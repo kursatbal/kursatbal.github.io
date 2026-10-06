@@ -5,7 +5,7 @@
 
 <section class="hero">
   <div class="hero-text">
-    {{ with $avatar }}{{ $a := .Resize "200x" }}<img class="hero-avatar" src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}">{{ end }}
+    {{ with $avatar }}{{ $a := .Resize "300x" }}<img class="hero-avatar" src="{{ $a.RelPermalink }}" width="{{ $a.Width }}" height="{{ $a.Height }}" alt="{{ $d.name }}">{{ end }}
     <h1 class="hero-name">{{ $d.name }}</h1>
     <p class="hero-title">{{ $d.title }}</p>
     <div class="hero-links">
