@@ -6,10 +6,12 @@
       {{- range site.Menus.main -}}
         {{- if and (ne .Name "Anasayfa") (ne .Name "Arama") -}}
           {{- $name := .Name -}}
-          {{- $inCat := false -}}{{- if $cur.IsPage -}}{{- $inCat = in $cur.Params.categories "Yazılar" -}}{{- end -}}
-          {{- $active := or ($cur.IsMenuCurrent "main" .) ($cur.HasMenuCurrent "main" .)
-                (and (eq $name "Projeler") (or (eq $cur.Kind "taxonomy") (and (eq $cur.Kind "term") (ne $cur.Title "Yazılar"))))
-                (and (eq $name "Yazılar") (or (and (eq $cur.Kind "term") (eq $cur.Title "Yazılar")) $inCat)) -}}
+          {{- $isPost := and $cur.IsPage (eq $cur.Section "post") -}}
+          {{- $isArchive := eq $cur.RelPermalink "/archives/" -}}
+          {{- $isYaz := and (eq $cur.Kind "term") (eq $cur.Title "Yazılar") -}}
+          {{- $active := or ($cur.IsMenuCurrent "main" .)
+                (and (eq $name "Yazılar") (or $isPost $isArchive $isYaz))
+                (and (eq $name "Projeler") (not $isPost) (not $isYaz) (or (eq $cur.Kind "taxonomy") (eq $cur.Kind "term"))) -}}
           <a href="{{ .URL | relURL }}"{{ if $active }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
         {{- end -}}
       {{- end -}}

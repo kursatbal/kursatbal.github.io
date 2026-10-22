@@ -12,7 +12,7 @@
 [[main]]
     identifier = "posts"
     name       = "Yazılar"
-    url        = "/categories/yazılar/"
+    url        = "/archives/"
     weight     = -90
 
     [main.params]

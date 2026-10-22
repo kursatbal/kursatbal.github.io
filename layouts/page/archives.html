@@ -1,7 +1,7 @@
 {{ define "main" }}
 <header class="page-head">
-  <div class="label">Arşiv</div>
-  <h1 class="page-title">Tüm yazılar</h1>
+  <div class="label">Tüm yazılar</div>
+  <h1 class="page-title">Yazılar</h1>
 </header>
 {{ range (where site.RegularPages "Section" "post").GroupByDate "2006" }}
 <section class="archive-year">

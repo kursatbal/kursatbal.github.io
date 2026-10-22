@@ -63,17 +63,21 @@
     <input id="skill-q" type="search" placeholder="Yetkinliklerde ara: veeam, exchange, python…" autocomplete="off" aria-label="Yetkinliklerde ara">
     <span id="skill-n" class="mono" aria-live="polite"></span>
   </div>
-  <div class="skill-grid" id="skill-grid">
+  <div class="skill-wrap">
+  <table class="skill-table" id="skill-grid">
+    <thead><tr><th scope="col">Alan</th><th scope="col">Teknolojiler</th></tr></thead>
+    <tbody>
     {{ range hugo.Data.skills }}
-    <article class="skill-card span-{{ .span }}">
-      <header class="skill-head">
+    <tr class="skill-card">
+      <th scope="row" class="skill-name">
         <span class="skill-ico">{{ partial "skill-icon.html" .icon }}</span>
         <h3>{{ .group }}</h3>
-        <span class="skill-count mono">{{ len .items }}</span>
-      </header>
-      <div class="skill-chips">{{ range .items }}<span class="chip">{{ . }}</span>{{ end }}</div>
-    </article>
+      </th>
+      <td class="skill-chips">{{ range .items }}<span class="chip">{{ . }}</span>{{ end }}</td>
+    </tr>
     {{ end }}
+    </tbody>
+  </table>
   </div>
 </section>
 
