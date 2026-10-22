@@ -578,3 +578,21 @@ main.wrap { position: relative; z-index: 2; }
 .job-items { list-style: none; padding-left: 0; }
 .job-items li { position: relative; padding-left: 18px; }
 .job-items li::before { content: ''; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .7; }
+
+/* ---------- Yetkinlik tablosu: kompakt ---------- */
+.skill-search { padding: 8px 14px; margin-bottom: 12px; }
+.skill-search input { font-size: 15px; }
+.skill-table thead th { padding: 9px 18px; }
+.skill-table thead th:first-child { width: 276px; }
+.skill-name { padding: 8px 18px; }
+.skill-name h3 { font-size: 15px; margin-left: 10px; white-space: nowrap; }
+.skill-name { white-space: nowrap; }
+.skill-ico { width: 28px; height: 28px; border-radius: 9px; }
+.skill-ico svg { width: 15px; height: 15px; }
+.skill-chips { padding: 7px 18px; line-height: 1.2; }
+.chip { font-size: 12px; padding: 2px 9px; margin: 2px 4px 2px 0; }
+.skill-table tbody tr:hover .skill-ico { transform: none; }
+@media (max-width: 720px) {
+  .skill-name { padding: 12px 16px 2px; }
+  .skill-chips { padding: 2px 16px 12px; }
+}
