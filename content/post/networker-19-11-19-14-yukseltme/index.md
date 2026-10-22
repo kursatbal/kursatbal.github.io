@@ -3,7 +3,9 @@ title: "NetWorker 19.11 → 19.14 ve Data Domain 8.6 Yükseltmesi: Backup'ları 
 description: "Dell NetWorker'ı 19.14.0.1'e, ardından Data Domain'i DDOS 8.6'ya yedekleri aksatmadan taşımanın sırası, tuzakları ve doğrulama adımları."
 date: 2026-10-22
 draft: false
-slug: networker-19-11-19-14-yukseltme
+slug: networker-19-14-data-domain-8-6-yukseltme
+aliases:
+    - /p/networker-19-11-19-14-yukseltme/
 categories:
     - Altyapı
 tags:
