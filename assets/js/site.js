@@ -78,6 +78,25 @@
     });
   }
 
+  // Yazılar: görselli / liste geçişi (seçim tarayıcıda hatırlanır; varsayılan görselli)
+  var pv = doc.getElementById('posts-view');
+  if (pv) {
+    var btns = [].slice.call(doc.querySelectorAll('.vt-btn'));
+    var setView = function (v) {
+      pv.setAttribute('data-view', v);
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === v ? 'true' : 'false'); });
+    };
+    var saved = 'cards';
+    try { var sv = localStorage.getItem('postsView'); if (sv === 'list' || sv === 'cards') saved = sv; } catch (e) {}
+    setView(saved);
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-view'); setView(v);
+        try { localStorage.setItem('postsView', v); } catch (e) {}
+      });
+    });
+  }
+
   // Arama
   var input = doc.getElementById('search-input');
   if (input && window.SEARCH_INDEX) {

@@ -546,3 +546,16 @@ main.wrap { position: relative; z-index: 2; }
   .skill-name { padding: 16px 18px 4px; }
   .skill-chips { padding: 4px 18px 16px; }
 }
+
+/* ---------- Yazılar: görselli / liste geçişi ---------- */
+.page-head-split { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.view-toggle { display: inline-flex; padding: 4px; gap: 4px; background: var(--surface); border: 1px solid var(--edge); border-radius: 999px; }
+.vt-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-2); font: 500 14px var(--sans); cursor: pointer; transition: background .15s, color .15s; }
+.vt-btn:hover { color: var(--accent); }
+.vt-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+#posts-view .archive-year .view-cards { display: grid; }
+#posts-view .archive-year .view-list { display: none; }
+#posts-view[data-view="list"] .view-cards { display: none; }
+#posts-view[data-view="list"] .view-list { display: block; }
+#posts-view .archive-year { margin-bottom: 48px; }
+#posts-view .archive-year-title { margin-bottom: 20px; }

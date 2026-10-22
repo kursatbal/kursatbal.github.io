@@ -1,12 +1,28 @@
 {{ define "main" }}
-<header class="page-head">
-  <div class="label">Tüm yazılar</div>
-  <h1 class="page-title">Yazılar</h1>
+<header class="page-head page-head-split">
+  <div>
+    <div class="label">Tüm yazılar</div>
+    <h1 class="page-title">Yazılar</h1>
+  </div>
+  <div class="view-toggle" role="group" aria-label="Görünüm">
+    <button type="button" class="vt-btn" data-view="cards" aria-pressed="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      Görselli
+    </button>
+    <button type="button" class="vt-btn" data-view="list" aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      Liste
+    </button>
+  </div>
 </header>
+<div id="posts-view" data-view="cards">
 {{ range (where site.RegularPages "Section" "post").GroupByDate "2006" }}
 <section class="archive-year">
   <h2 class="archive-year-title">{{ .Key }}</h2>
-  <div class="archive-list">
+  <div class="grid grid-3 view-cards">
+    {{ range .Pages }}{{ partial "post-card.html" . }}{{ end }}
+  </div>
+  <div class="archive-list view-list">
     {{ range .Pages }}
     <a class="archive-item" href="{{ .RelPermalink }}">
       <span class="archive-date">{{ partial "date.html" .Date }}</span>
@@ -17,4 +33,5 @@
   </div>
 </section>
 {{ end }}
+</div>
 {{ end }}
