@@ -1,0 +1,84 @@
+- group: "Sanallaştırma & VDI"
+  icon: "layers"
+  span: 1
+  items:
+    - "VMware vSphere / vCenter"
+    - "Hyper-V"
+    - "Sangfor"
+    - "Citrix CVAD"
+- group: "Sunucu & Depolama"
+  icon: "server"
+  span: 2
+  items:
+    - "Dell, HPE, IBM, Nutanix sunucular"
+    - "Dell PowerStore"
+    - "Dell PowerVault / ME"
+    - "Pure Storage"
+    - "HPE MSA"
+    - "SAN switch"
+    - "NAS"
+- group: "Windows Server"
+  icon: "windows"
+  span: 1
+  items:
+    - "Active Directory"
+    - "DNS"
+    - "DHCP"
+    - "GPO"
+    - "WSUS"
+    - "IIS"
+    - "RDS"
+    - "LAPS"
+    - "SCCM"
+- group: "Microsoft 365 & Exchange"
+  icon: "cloud"
+  span: 1
+  items:
+    - "Entra ID"
+    - "Entra Connect"
+    - "Exchange Server"
+    - "Exchange Online"
+    - "M365 yönetimi"
+- group: "Mail Güvenliği & Arşiv"
+  icon: "mail"
+  span: 1
+  items:
+    - "Cisco IronPort"
+    - "Symantec SMG"
+    - "Trend Micro"
+    - "Veritas Enterprise Vault"
+- group: "Güvenlik & Uyum"
+  icon: "shield"
+  span: 1
+  items:
+    - "CIS Benchmark"
+    - "Qualys"
+    - "Nessus"
+    - "Elastic SIEM"
+    - "ISO 27001"
+- group: "İzleme"
+  icon: "pulse"
+  span: 1
+  items:
+    - "Zabbix"
+    - "PRTG"
+- group: "Otomasyon"
+  icon: "code"
+  span: 1
+  items:
+    - "PowerShell"
+    - "Python (Flask)"
+    - "REST API"
+- group: "Yedekleme & DR"
+  icon: "database"
+  span: 2
+  items:
+    - "Veeam B&R"
+    - "Dell NetWorker"
+    - "Dell PPDM"
+    - "Dell RecoverPoint for VMs (RP4VM)"
+- group: "Linux"
+  icon: "terminal"
+  span: 1
+  items:
+    - "RHEL ve Linux sistem yönetimi (orta düzey)"

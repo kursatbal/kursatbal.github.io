@@ -18,6 +18,25 @@
 {{ with .Content }}<div class="prose about-prose">{{ . }}</div>{{ end }}
 
 <section class="section">
+  <div class="section-head"><h2>Neler yapıyorum</h2></div>
+  <div class="expertise">
+    {{ range hugo.Data.expertise }}
+    <div class="exp-card">
+      <h3>{{ .title }}</h3>
+      <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Sahadan çalışmalar</h2><a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.featured }}{{ with site.GetPage . }}{{ partial "post-card.html" . }}{{ end }}{{ end }}
+  </div>
+</section>
+
+<section class="section">
   <div class="section-head"><h2>Deneyim</h2></div>
   <div class="timeline">
     {{ range hugo.Data.experience }}
@@ -26,7 +45,7 @@
       <div class="job-body">
         <h3 class="job-role">{{ .role }}</h3>
         <div class="job-company">{{ .company }} · {{ .place }}</div>
-        {{ with .items }}<ul class="job-items">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+        {{ with .items }}<details class="job-more"><summary>Ayrıntılar ({{ len . }} madde)</summary><ul class="job-items">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></details>{{ end }}
       </div>
     </article>
     {{ end }}
@@ -34,13 +53,26 @@
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>Teknoloji</h2></div>
-  <div class="stack">
-    {{ range hugo.Data.stack }}
-    <div class="stack-group">
-      <div class="label">{{ .group }}</div>
-      <div class="tags">{{ range .items }}<span class="tag tag-lg">{{ . }}</span>{{ end }}</div>
-    </div>
+  <div class="section-head">
+    <h2>Teknik yetkinlikler</h2>
+    {{ $total := 0 }}{{ range hugo.Data.skills }}{{ $total = add $total (len .items) }}{{ end }}
+    <span class="skill-stat mono">{{ len hugo.Data.skills }} alan · {{ $total }} teknoloji</span>
+  </div>
+  <div class="skill-search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="skill-q" type="search" placeholder="Yetkinliklerde ara: veeam, exchange, python…" autocomplete="off" aria-label="Yetkinliklerde ara">
+    <span id="skill-n" class="mono" aria-live="polite"></span>
+  </div>
+  <div class="skill-grid" id="skill-grid">
+    {{ range hugo.Data.skills }}
+    <article class="skill-card span-{{ .span }}">
+      <header class="skill-head">
+        <span class="skill-ico">{{ partial "skill-icon.html" .icon }}</span>
+        <h3>{{ .group }}</h3>
+        <span class="skill-count mono">{{ len .items }}</span>
+      </header>
+      <div class="skill-chips">{{ range .items }}<span class="chip">{{ . }}</span>{{ end }}</div>
+    </article>
     {{ end }}
   </div>
 </section>

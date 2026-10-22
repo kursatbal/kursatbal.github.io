@@ -56,6 +56,28 @@
     doc.querySelectorAll('.prose h2[id], .prose h3[id]').forEach(function (h) { io.observe(h); });
   }
 
+  // Yetkinlik panosu: arama + fare ışığı
+  var sq = doc.getElementById('skill-q');
+  if (sq) {
+    var cards = [].slice.call(doc.querySelectorAll('.skill-card')), sn = doc.getElementById('skill-n');
+    var nrm = function (s) { return (s || '').toLocaleLowerCase('tr').normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); };
+    sq.addEventListener('input', function () {
+      var q = nrm(sq.value).trim(), hits = 0;
+      cards.forEach(function (c) {
+        var any = false;
+        [].slice.call(c.querySelectorAll('.chip')).forEach(function (ch) {
+          var m = q && nrm(ch.textContent).indexOf(q) > -1; ch.classList.toggle('is-hit', !!m); if (m) { any = true; hits++; }
+        });
+        var t = q && nrm(c.querySelector('h3').textContent).indexOf(q) > -1;
+        c.classList.toggle('is-hit', !!(any || t)); c.classList.toggle('is-dim', !!q && !(any || t));
+      });
+      sn.textContent = q ? hits + ' eşleşme' : '';
+    });
+    cards.forEach(function (c) {
+      c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+    });
+  }
+
   // Arama
   var input = doc.getElementById('search-input');
   if (input && window.SEARCH_INDEX) {
