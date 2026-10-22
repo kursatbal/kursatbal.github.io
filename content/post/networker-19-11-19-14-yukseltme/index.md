@@ -162,10 +162,23 @@ C:\Program Files\EMC NetWorker\nsr\logs\adhoc\nsrvproxy_mgmt
 NetWorker tarafı hazır olduğunda Data Domain'e geçin. DDOS 8.6 Release Notes'a göre 7.7.x ve 8.3 dahil birçok sürümden 8.6'ya **tek adımda** geçilebiliyor, ara sürüm gerekmiyor.
 
 <div class="callout callout--danger">
-<strong>⚠ Data Domain'de geri dönüş yok</strong> Dell, DDOS'u eski sürüme düşürmeyi desteklemiyor (KB 000081247). NetWorker'da snapshot ile aynı gün geri dönebiliyordunuz; Data Domain'de böyle bir yol yok. Bu yüzden bu adıma, NetWorker tarafının gerçek backup'larla sorunsuz çalıştığını gördükten sonra girin.
+<strong>⚠ Data Domain'de geri dönüş yok</strong> Dell, PowerProtect DD platformlarında DDOS'u eski sürüme düşürmeyi desteklemiyor (KB 000081247); desteklenen tek yön, daha yeni bir sürüme geçmek. NetWorker'da snapshot ile aynı gün geri dönebiliyordunuz; Data Domain'de böyle bir yol yok. Bu yüzden bu adıma, NetWorker tarafının gerçek backup'larla sorunsuz çalıştığını gördükten sonra girin.
 </div>
 
-1. **Sırayı belirleyin.** Data Domain'ler arasında kopya varsa önce **hedefi** (DR), sonra **kaynağı** (PROD) yükseltin. Dell'in DDOS FAQ'ı (KB 000081005), tek yönlü replikasyonda kaynağın 24 saat içinde arkadan gelmesini öneriyor. Aradaki süreyi uzun tutmayın. Yükseltme sonrası kopya ilişkisi olan iki Data Domain'in sürümlerinin birbiriyle uyumlu olduğunu da Dell'in uyumluluk tablosundan kontrol edin.
+1. **Önce şunu sorun: iki Data Domain arasında veri akışı var mı?** Her birinin backup yazılımıyla uyumuna bakmak yetmez; aralarında veri akıyorsa birbirleriyle uyumuna da bakmak gerekir.
+
+| Durum | Ne yapmalı |
+|---|---|
+| Aralarında veri akışı var: NetWorker clone (DD Boost dosya replikasyonu, MFR/CCR), DD'nin kendi replikasyonu (MTree, collection ya da directory; `replication show config` ile görürsünüz) ya da başka bir uygulamanın replikasyonu (örneğin PPDM, Avamar) | Uyum ve sırayı planlayın |
+| İki DD tamamen bağımsız, aralarında kopya yok | Her birini kendi backup yazılımıyla uyumuna bakarak ayrı ayrı yükseltebilirsiniz |
+
+
+   Aranızda veri akışı varsa şunlara dikkat edin:
+
+   - **Sürüm farkı:** Dell'in DDOS FAQ'ına göre (KB 000081005), replikasyon yapan sistemler en fazla iki DDOS sürüm ailesi farkında kalmalı. Kesin desteklenen kombinasyonlar için Dell'in uyumluluk tablosuna bakın.
+   - **Sıra:** Tek yönlü replikasyonda önce hedef (DR), 24 saat içinde kaynak (PROD). Collection replication'da önce hedef, sonra kaynak. İki yönlü replikasyonda sıra fark etmez.
+   - **Aradaki süre:** İki DD'nin farklı sürümlerde kaldığı süreyi kısa tutun. DDOS'ta eski sürüme dönüş desteklenmediği için sırayı baştan doğru planlayın.
+   - **Pratik kontrol:** Hedef DD'yi yükselttikten sonra ilk clone/replikasyon job'larının başarılı olduğunu doğrulayın. Kaynağı ancak ondan sonra yükseltin.
 
 ![Data Domain yükseltme sırası: önce hedef DR, sonra kaynak PROD](data-domain-sirasi.png)
 
@@ -199,7 +212,7 @@ Bu adımlarla DR Data Domain'i 8.3'ten 8.6.1.30'a sorunsuz taşıdık.
 - **Snapshot almadan servis durdurmayın.**
 - **Storage node'u unutmayın.** Server ile aynı pencerede yükseltin.
 - **vProxy şifrelerini kayıt altına alın.**
-- **Data Domain'lerde sıra önemli.** Kopya varsa önce hedef, sonra kaynak.
+- **Data Domain'lerde sıra önemli.** Kopya varsa önce hedef, sonra kaynak; hedefte ilk clone başarılı olmadan kaynağa geçmeyin. Aradaki süreyi uzun tutmayın.
 - **Gerçek backup ile test edin.**
 
 ## Kaynaklar
