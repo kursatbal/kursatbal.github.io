@@ -201,7 +201,7 @@ alerts show current
 4. **RPM'i yükleyin, DD'ye kendini kontrol ettirin, sonra başlatın.** RPM'i yükledikten sonra `system upgrade precheck` ile Data Domain'in kendi ön kontrolünü çalıştırın, ardından yükseltmeyi başlatın. Süre platforma ve veri miktarına göre değişir. İşlem sürerken sistemi kapatmayın.
 5. **Sonrasında doğrulayın.** `system show version` ile yeni sürümü görün. NetWorker'da device'ların mount olduğunu ve ilk backup ile clone'un başarılı olduğunu kontrol edin. SupportAssist/autosupport yapılandırmasının hâlâ yerinde olduğunu da doğrulayın.
 
-Bu adımlarla önce DR, ardından PROD Data Domain'i DDOS 8.6'ya sorunsuz taşıdık (DR: 8.3'ten 8.6.1.30'a).
+Bu adımlarla önce DR, ardından PROD Data Domain'i DDOS 8.3'ten 8.6.1.30'a sorunsuz taşıdık.
 
 ## Aklınızda kalsın
 
