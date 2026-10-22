@@ -559,3 +559,22 @@ main.wrap { position: relative; z-index: 2; }
 #posts-view[data-view="list"] .view-list { display: block; }
 #posts-view .archive-year { margin-bottom: 48px; }
 #posts-view .archive-year-title { margin-bottom: 20px; }
+
+/* ---------- Yetkinlik tablosu: cila ---------- */
+.skill-wrap { box-shadow: 0 18px 50px -34px rgba(15, 60, 56, .45); }
+.skill-table thead th { padding: 16px 24px; background: linear-gradient(180deg, var(--surface-2), color-mix(in srgb, var(--surface-2) 70%, var(--surface))); }
+.skill-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--surface-2) 38%, transparent); }
+.skill-table tbody tr { position: relative; }
+.skill-table tbody tr > *:first-child { box-shadow: inset 0 0 0 var(--accent); transition: box-shadow .2s; }
+.skill-table tbody tr:hover > *:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.skill-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.skill-name { padding: 18px 24px; }
+.skill-chips { padding: 16px 24px; }
+.skill-ico { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--accent) 14%, var(--surface))); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent); transition: transform .2s; }
+.skill-table tbody tr:hover .skill-ico { transform: scale(1.08) rotate(-4deg); }
+.chip { background: var(--surface); border-color: color-mix(in srgb, var(--edge) 80%, var(--accent)); border-radius: 999px; padding: 5px 12px; box-shadow: 0 1px 0 rgba(0, 0, 0, .03); }
+.chip:hover { background: var(--accent-soft); transform: translateY(-1px); }
+.skill-table tbody tr:hover .chip { border-color: color-mix(in srgb, var(--accent) 35%, var(--edge)); }
+.job-items { list-style: none; padding-left: 0; }
+.job-items li { position: relative; padding-left: 18px; }
+.job-items li::before { content: ''; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .7; }

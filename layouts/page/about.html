@@ -18,41 +18,6 @@
 {{ with .Content }}<div class="prose about-prose">{{ . }}</div>{{ end }}
 
 <section class="section">
-  <div class="section-head"><h2>Neler yapıyorum</h2></div>
-  <div class="expertise">
-    {{ range hugo.Data.expertise }}
-    <div class="exp-card">
-      <h3>{{ .title }}</h3>
-      <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
-    </div>
-    {{ end }}
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-head"><h2>Sahadan çalışmalar</h2><a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a></div>
-  <div class="grid grid-3">
-    {{ range hugo.Data.featured }}{{ with site.GetPage . }}{{ partial "post-card.html" . }}{{ end }}{{ end }}
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-head"><h2>Deneyim</h2></div>
-  <div class="timeline">
-    {{ range hugo.Data.experience }}
-    <article class="job">
-      <div class="job-period label">{{ .period }}</div>
-      <div class="job-body">
-        <h3 class="job-role">{{ .role }}</h3>
-        <div class="job-company">{{ .company }} · {{ .place }}</div>
-        {{ with .items }}<details class="job-more"><summary>Ayrıntılar ({{ len . }} madde)</summary><ul class="job-items">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></details>{{ end }}
-      </div>
-    </article>
-    {{ end }}
-  </div>
-</section>
-
-<section class="section">
   <div class="section-head">
     <h2>Teknik yetkinlikler</h2>
     {{ $total := 0 }}{{ range hugo.Data.skills }}{{ $total = add $total (len .items) }}{{ end }}
@@ -78,6 +43,29 @@
     {{ end }}
     </tbody>
   </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>İş deneyimi</h2></div>
+  <div class="timeline">
+    {{ range hugo.Data.experience }}
+    <article class="job">
+      <div class="job-period label">{{ .period }}</div>
+      <div class="job-body">
+        <h3 class="job-role">{{ .role }}</h3>
+        <div class="job-company">{{ .company }} · {{ .place }}</div>
+        {{ with .items }}<ul class="job-items">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Sahadan çalışmalar</h2><a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.featured }}{{ with site.GetPage . }}{{ partial "post-card.html" . }}{{ end }}{{ end }}
   </div>
 </section>
 
