@@ -1,0 +1,60 @@
+{{- /* Canlı yedekleme akışı: kaynaklar -> NetWorker -> PROD ve DR Data Domain. Hareket azaltmada sabit kalır. */ -}}
+<figure class="article-art art-live" role="img" aria-label="{{ .Params.header_image_alt | default "NetWorker, PROD ve DR taraftaki Data Domain'lere backup alıyor; PROD'dan DR'a clone yapılıyor" }}">
+<svg viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <path id="p-src1" d="M184 110 C240 110 240 236 290 240"/>
+    <path id="p-src2" d="M184 250 L290 250"/>
+    <path id="p-src3" d="M184 390 C240 390 240 264 290 260"/>
+    <path id="p-prod" d="M462 236 C520 236 520 120 566 120"/>
+    <path id="p-dr" d="M462 264 C520 264 520 380 566 380"/>
+    <path id="p-clone" d="M660 184 L660 316"/>
+  </defs>
+
+  <text class="a-label" x="8" y="26">YEDEKLEME AKIŞI</text>
+
+  <g class="a-lines">
+    <use href="#p-src1" class="a-line a-flow"/><use href="#p-src2" class="a-line a-flow"/><use href="#p-src3" class="a-line a-flow"/>
+    <use href="#p-prod" class="a-line a-line-main a-flow"/><use href="#p-dr" class="a-line a-line-dr a-flow"/>
+    <use href="#p-clone" class="a-line a-line-clone a-flow-slow"/>
+  </g>
+
+  <g class="a-src">
+    <rect x="8" y="80" width="176" height="60" rx="12"/><rect class="a-ico" x="22" y="101" width="20" height="18" rx="4"/><text x="54" y="115">Dosya client'ları</text>
+    <rect x="8" y="220" width="176" height="60" rx="12"/><rect class="a-ico" x="22" y="241" width="20" height="18" rx="4"/><text x="54" y="255">SQL (NMM)</text>
+    <rect x="8" y="360" width="176" height="60" rx="12"/><rect class="a-ico" x="22" y="381" width="20" height="18" rx="4"/><text x="54" y="395">VM'ler (vProxy)</text>
+  </g>
+
+  <g class="a-nw">
+    <rect class="a-pulse" x="290" y="195" width="172" height="110" rx="18"/>
+    <rect class="a-nw-box" x="290" y="195" width="172" height="110" rx="18"/>
+    <text class="a-nw-sub" x="312" y="232">SERVER + NODE</text>
+    <text class="a-nw-title" x="312" y="268">NetWorker</text>
+  </g>
+
+  <g class="a-dd a-dd-prod">
+    <rect x="566" y="60" width="188" height="124" rx="16"/>
+    <text class="a-dd-sub" x="584" y="92">ANA SİSTEM</text><text class="a-dd-title" x="584" y="122">PROD</text><text class="a-dd-name" x="584" y="144">Data Domain</text>
+    <rect class="a-bar b1" x="584" y="158" width="38" height="8" rx="2"/><rect class="a-bar b2" x="628" y="158" width="38" height="8" rx="2"/><rect class="a-bar b3" x="672" y="158" width="38" height="8" rx="2"/>
+  </g>
+  <g class="a-dd a-dd-dr">
+    <rect x="566" y="316" width="188" height="124" rx="16"/>
+    <text class="a-dd-sub" x="584" y="348">FELAKET YERİ</text><text class="a-dd-title" x="584" y="378">DR</text><text class="a-dd-name" x="584" y="400">Data Domain</text>
+    <rect class="a-bar b1" x="584" y="414" width="38" height="8" rx="2"/><rect class="a-bar b2" x="628" y="414" width="38" height="8" rx="2"/><rect class="a-bar b3" x="672" y="414" width="38" height="8" rx="2"/>
+  </g>
+  <text class="a-tag" x="474" y="206">backup</text>
+  <text class="a-tag a-tag-dr" x="474" y="330">backup</text>
+  <text class="a-tag" x="672" y="254">clone</text>
+
+  <g class="a-dots">
+    <circle class="dot" r="5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0s"><mpath href="#p-src1"/></animateMotion></circle>
+    <circle class="dot" r="5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="-0.9s"><mpath href="#p-src2"/></animateMotion></circle>
+    <circle class="dot" r="5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="-1.7s"><mpath href="#p-src3"/></animateMotion></circle>
+    <circle class="dot" r="5"><animateMotion dur="2.2s" repeatCount="indefinite" begin="-0.3s"><mpath href="#p-src1"/></animateMotion></circle>
+    <circle class="dot dot-main" r="6"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#p-prod"/></animateMotion></circle>
+    <circle class="dot dot-main" r="6"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.2s"><mpath href="#p-prod"/></animateMotion></circle>
+    <circle class="dot dot-dr" r="6"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-0.6s"><mpath href="#p-dr"/></animateMotion></circle>
+    <circle class="dot dot-dr" r="6"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.8s"><mpath href="#p-dr"/></animateMotion></circle>
+    <circle class="dot dot-clone" r="5"><animateMotion dur="3s" repeatCount="indefinite" begin="-0.5s"><mpath href="#p-clone"/></animateMotion></circle>
+  </g>
+</svg>
+</figure>

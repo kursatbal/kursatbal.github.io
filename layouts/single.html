@@ -1,15 +1,19 @@
 {{ define "body-class" }}is-article{{ end }}
 {{ define "main" }}
 <article class="article">
-  <header class="article-header">
-    <div class="label">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Yazı{{ end }}</div>
-    <h1 class="article-title">{{ .Title }}</h1>
-    {{ with .Params.description }}<p class="article-lead">{{ . }}</p>{{ end }}
-    <div class="article-meta">
-      <span>{{ partial "date.html" .Date }}</span>
-      <span aria-hidden="true">·</span>
-      <span>{{ .ReadingTime }} dk okuma</span>
+  {{ $hero := "" }}{{ with .Params.header_image }}{{ $hero = $.Resources.Get . }}{{ end }}{{ $live := .Params.header_art }}
+  <header class="article-header{{ if or $hero $live }} has-art{{ end }}">
+    <div class="article-header-text">
+      <div class="label">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Yazı{{ end }}</div>
+      <h1 class="article-title">{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="article-lead">{{ . }}</p>{{ end }}
+      <div class="article-meta">
+        <span>{{ partial "date.html" .Date }}</span>
+        <span aria-hidden="true">·</span>
+        <span>{{ .ReadingTime }} dk okuma</span>
+      </div>
     </div>
+    {{ if $live }}{{ partial (printf "art-%s.html" $live) . }}{{ else }}{{ with $hero }}{{ $h := .Resize "900x" }}<figure class="article-art"><img src="{{ $h.RelPermalink }}" width="{{ $h.Width }}" height="{{ $h.Height }}" alt="{{ $.Params.header_image_alt | default "" }}"></figure>{{ end }}{{ end }}
   </header>
 
   <div class="article-grid">
