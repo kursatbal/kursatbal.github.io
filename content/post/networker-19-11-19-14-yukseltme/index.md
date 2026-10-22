@@ -22,7 +22,7 @@ header_image_alt: "NetWorker, PROD ve DR taraftaki Data Domain'lere backup alıy
 
 Yedekleme sistemini yükseltmek, uçakta motor değiştirmeye benzer: uçuş sürerken yapıyorsunuz ve bir şey ters giderse geri dönecek bir yer olmalı. Üstelik bu işte en sık yapılan hata aracın kendisi değil, **sıra**. Önce depolamayı yükseltirsiniz, sonra yedekleme yazılımının o sürümü desteklemediğini görürsünüz.
 
-Bu rehberde Dell NetWorker'ı **19.11'den 19.14.0.1'e**, ardından Data Domain'i **DDOS 8.6'ya** yedekleri kesmeden nasıl taşıdığımızı anlatıyorum. Adımları gerçek bir kurumsal ortamda uyguladık: önce NetWorker server ve storage node, sonra vProxy'ler, client'lar ve SQL (NMM) bileşenleri, en son DR tarafındaki Data Domain 8.6'ya geçti.
+Bu rehberde Dell NetWorker'ı **19.11'den 19.14.0.1'e**, ardından PROD ve DR Data Domain'leri **DDOS 8.6'ya** yedekleri kesmeden nasıl taşıdığımızı anlatıyorum. Adımları gerçek bir kurumsal ortamda uyguladık: önce NetWorker server ve storage node, sonra vProxy'ler, client'lar ve SQL (NMM) bileşenleri, en son Data Domain'ler 8.6'ya geçti (önce DR, sonra PROD).
 
 <div class="callout callout--warning">
 <strong>⚠ Ortamınızı kendiniz kontrol edin</strong> Bizim ortamda NetWorker'dan yalnızca PROD ve DR tarafındaki Data Domain'lere backup alınıyordu; bu yüzden yükseltmeden önce yapı bu açıdan kontrol edildi. Siz bu işlemleri yaparken <b>backup aldığınız tüm ürünleri ve hedefleri</b> ayrı ayrı kontrol etmeniz gerekir. Bir bileşenin hedef sürümle uyumlu olması, diğerinin de uyumlu olduğu anlamına gelmez.
@@ -201,7 +201,7 @@ alerts show current
 4. **RPM'i yükleyin, DD'ye kendini kontrol ettirin, sonra başlatın.** RPM'i yükledikten sonra `system upgrade precheck` ile Data Domain'in kendi ön kontrolünü çalıştırın, ardından yükseltmeyi başlatın. Süre platforma ve veri miktarına göre değişir. İşlem sürerken sistemi kapatmayın.
 5. **Sonrasında doğrulayın.** `system show version` ile yeni sürümü görün. NetWorker'da device'ların mount olduğunu ve ilk backup ile clone'un başarılı olduğunu kontrol edin. SupportAssist/autosupport yapılandırmasının hâlâ yerinde olduğunu da doğrulayın.
 
-Bu adımlarla DR Data Domain'i 8.3'ten 8.6.1.30'a sorunsuz taşıdık.
+Bu adımlarla önce DR, ardından PROD Data Domain'i DDOS 8.6'ya sorunsuz taşıdık (DR: 8.3'ten 8.6.1.30'a).
 
 ## Aklınızda kalsın
 
