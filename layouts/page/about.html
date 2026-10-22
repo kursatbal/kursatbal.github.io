@@ -63,16 +63,13 @@
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>Sahadan çalışmalar</h2><a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a></div>
-  <div class="grid grid-3">
-    {{ range hugo.Data.featured }}{{ with site.GetPage . }}{{ partial "post-card.html" . }}{{ end }}{{ end }}
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-head"><h2>Geliştirdiğim araçlar</h2></div>
-  <div class="grid grid-3">
-    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
+  <div class="section-head"><h2>Eğitim</h2></div>
+  <div class="job">
+    <div class="job-period label">2024</div>
+    <div class="job-body">
+      <h3 class="job-role">Bilgisayar Mühendisliği</h3>
+      <div class="job-company">Haliç Üniversitesi</div>
+    </div>
   </div>
 </section>
 
@@ -93,13 +90,16 @@
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>Eğitim</h2></div>
-  <div class="job">
-    <div class="job-period label">2024</div>
-    <div class="job-body">
-      <h3 class="job-role">Bilgisayar Mühendisliği</h3>
-      <div class="job-company">Haliç Üniversitesi</div>
-    </div>
+  <div class="section-head"><h2>Sahadan çalışmalar</h2><a class="more" href="{{ "archives/" | relURL }}">Tüm yazılar →</a></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.featured }}{{ with site.GetPage . }}{{ partial "post-card.html" . }}{{ end }}{{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Geliştirdiğim araçlar</h2></div>
+  <div class="grid grid-3">
+    {{ range hugo.Data.tools }}{{ partial "tool-card.html" . }}{{ end }}
   </div>
 </section>
 {{ end }}
